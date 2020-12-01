@@ -129,7 +129,7 @@ A MVUE estimator is the gold standard. It is possible, though, that a *biased* a
 
 It's beyond our scope to establish whether particular estimators are the MVUE. However, in general, the *sample average* is an MVUE of the expected value of a distribution. Alternatively, the sample average is the MVUE of the population average. If you are using $\hat{\theta} = \text{avg}(x)$ to estimate $\theta = E(X)$, then $\hat{\theta}$ is an MVUE.
 
-## Exercises
+## Exercises {#evaluating-point-estimates-exercises}
 
 ```{exercise, label="bias-exponential"}
 First, use a computer simulation to check whether the ML estimator $\hat{\lambda} = \frac{1}{\text{avg}(x)}$ of $\lambda$ for the exponential distribution is (at least approximately) unbiased. (See the example for the Poisson distribution above.) Second, prove that the ML estimator of $\lambda$ is biased. Third, check whether the ML estimator $\hat{\mu} = \frac{1}{\hat{lambda}}$ of $\mu = \frac{1}{\lambda}$ is biased.
