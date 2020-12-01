@@ -1,0 +1,228 @@
+# Evaluating Point Estimates
+
+In this chapter, I discuss three concepts that we can use to evaluate an estimator from a frequentist perspective.
+
+1. Bias
+2. Consistency
+3. MVUE or BUE
+
+As a running example, we have the toothpaste cap problem and the following estimators of the chance of getting a top.
+
+1. *posterior mean:* $\hat{\pi}^{Bayes} = \dfrac{\alpha^\prime}{\alpha^\prime + \beta^\prime} = \dfrac{\alpha^* + k}{[\alpha^* + k] + [\beta^* + (N - k)]} = \dfrac{\alpha^* + k}{\alpha^* + \beta^* + N }$
+1. *method of moments estimator*: $\hat{\pi}^{MM} = \frac{k}{n}$
+1. *maximum likelihood estimator*: $\hat{\pi}^{ML} = \frac{k}{n}$
+
+For each of these estimators we can ask:
+
+1. Is it good? (in an absolute sense)
+1. Is it better than another estimator?
+
+## Bias
+
+Imagine repeatedly sampling and computing the estimate $\hat{\theta}$ of the parameter $\theta$ for each sample. In this thought experiment, $\hat{\theta}$ is a random variable. We say that $\hat{\theta}$ is **biased** if $E(\hat{\theta}) \neq \theta$. We say that $\hat{\theta}$ is **unbiased** if $E(\hat{\theta}) = \theta$. We say that the **bias** of $\hat{\theta}$ is  $E(\hat{\theta}) - \theta$.
+
+For example, we can compute the bias of our ML estimator of $\pi$ in the toothpaste cap problem.
+
+$$
+\begin{aligned}
+E\left[ \frac{k}{N}\right] &= \frac{1}{N} E(k) = \frac{1}{N} E  \overbrace{ \left( \sum_{n = 1}^N x_n \right) }^{\text{recall } k = \sum_{n = 1}^N x_n } = \frac{1}{N} \sum_{n = 1}^N E(x_n) = \frac{1}{N} \sum_{n = 1}^N \pi = \frac{1}{N}N\pi \\
+&= \pi
+\end{aligned}
+$$
+
+Thus, $\hat{\pi}^{ML}$ is an unbiased estimator of $\pi$ in the toothpaste cap problem.
+
+We need to be cautious about evaluating the frequentist properties of Bayesian estimates. Bayesian's approach inference by describing prior beliefs and then updating those beliefs. This is a logical process. So long at the math is correct, we don't really need to evaluate whether the posterior is "good" or "bad" or "better" or "worse"--it's just the posterior.
+
+However, setting philosophical orientations aside, nothing prevents us from evaluting the frequentist properties of a posterior mean.
+
+$$
+\begin{aligned}
+E\left[ \frac{\alpha^* + k}{\alpha^* + \beta^* + N}\right] &= \frac{1}{\alpha^* + \beta^* + N} E(k + \alpha^*) = \frac{1}{\alpha^* + \beta^* + N} \left[ E(k) + \alpha^* \right] \\
+& = \frac{1}{\alpha^* + \beta^* + N} \left[ \sum_{n = 1}^N E(x_n) + \alpha^* \right] \\
+& = \frac{1}{\alpha^* + \beta^* + N} \left[ \sum_{n = 1}^N \pi + \alpha^* \right] \\
+& = \frac{N\pi + \alpha^*}{\alpha^* + \beta^* + N} 
+\end{aligned}
+$$
+As $N \xrightarrow{} \infty$, the expected value approaches $\pi$, but the posterior mean is biased in finite samples. Remember that both prior parameters must be positive. 
+
+We get a nice, intuitive result, though. Remember that if $\alpha = \beta$, then the beta distribution is symmetric about one-half. As the parameters grow larger, it becomes less variable around zero. You can see that for $\alpha = \beta > 1$, the posterior mean becomes more biased toward $\frac{1}{2}# as $\alpha$ and $\beta$ grow larger.
+
+### Example: Sample Average
+
+Similarly, we can show that, for a simple random sample, the sample average is an unbiased estimate of the population average.
+
+$$
+\begin{aligned}
+E\left[ \frac{\sum_{n = 1}^N x_n}{N}\right] &= \frac{1}{N} E\left[ \sum_{n = 1}^N x_n \right] = \frac{1}{N} \sum_{n = 1}^N E(x_n) \\
+ &= \frac{1}{N} \sum_{n = 1}^N \text{(pop. avg.)} = \frac{1}{N}N \text{(pop. avg.)} \\
+ & = \text{pop. avg.}
+\end{aligned}
+$$
+
+### Example: Poisson Distribution
+
+Using math almost identical to the toothpaste cap problem, we can show that the ML estimator $\hat{\lambda} = \text{avg}(x)$ is an unbiased estimator of $\lambda$. 
+
+We can also illustrate the unbiasedness with a computer simulation.
+
+```{r}
+lambda <- 4.0      # the parameter we're trying to estimate
+sample_size <- 10  # the sample size we're using in each "study"
+
+n_repeated_samples <- 10000  # the number of times we repeat the "study"
+lambda_hat <- numeric(n_repeated_samples)  # a container 
+for (i in 1:n_repeated_samples) {
+  x <- rpois(sample_size, lambda = lambda)
+  lambda_hat[i] <- mean(x)
+}
+
+# long-run average
+mean(lambda_hat)
+```
+
+## Consistency
+
+Imagine take a sample of size N and compute the estimate $\hat{\theta}_N$ of the parameter $\theta$. We say that $\hat{\theta}$ is a **consistent** estimator of $\theta$ if $\hat{\theta}$  converges in probability to $\theta$.
+
+Intuitively, this means the following:
+
+1. For a large enough sample, the estimator returns the exact right answer.
+1. For a large enough sample, the estimate $\hat{theta}$ does not vary any more, but collapses onto a single point and that point is $\theta$.
+
+Under weak, but somewhat technical, assumptions that usually hold, ML estimators are consistent. Under even weaker assumptions, MM estimators are consistent.
+
+Given that we always have finite samples, why is consistency valuable? In short, it's not valuable, directly. However, consistent estimators tend to be decent with small samples. 
+
+But it does not follow that consistent estimators work well in small samples. Consider the estimator $\hat{\pi}^{Bayes}$. By appropriate (i.e., large) values for $\alpha^*$ and $\beta^*$, we can make the $E(\hat{\pi}^{Bayes})$ whatever we like in the $(0, 1)$ interval. But $E(\hat{\pi}^{Bayes})$ is consistent *regardless* of the values we choose for $\alpha^*$ and $\beta^*$. Even though posterior mean is consistent, it can be highly biased for finite samples.
+
+However, as a rough guideline, consistent estimators work well for small samples. However, whether they actually work well in any particular situation needs a more careful investigation.
+
+## MVUE or BUE
+
+Imagine repeatedly sampling and computing the estimate $\hat{\theta}$ of the parameter $\theta$ for each sample. In this thought experiment, $\hat{\theta}$ is a random variable. We refer to $E \left[ (\hat{\theta} - \theta)^2 \right]$ as the **mean-squared error* (MSE) of $\hat{\theta}$. Some people use the square-root of the MSE, which we refer to as the root-mean-squared error (RMSE).
+
+In general, we prefer estimators with a smaller MSE to estimators with a larger MSE.
+
+Notice that an estimator can have a larger MSE because (1) it's more variable or (2) more biased. To see this, we can decompose the MSE into two components.
+
+$$
+\begin{aligned}
+E \left[ (\hat{\theta} - \theta)^2 \right] &= E \left[ (\hat{\theta} - E(\hat{\theta})\right] ^2 + E(\hat{\theta} - \theta)^2\\
+\text{MSE}(\hat{\theta}) &= \text{Var}(\hat{\theta}) + \text{Bias}(\hat{\theta})^2
+\end{aligned}
+$$
+When designing an estimator, we usually follow this process:
+
+1. Eliminate biased estimators, if an unbiased estimator exists.
+1. Among the remaining unbiased estimators, select the one with the smallest variance. (The variance equls the MSE for unbiased estimators.)
+
+This process does not necessarily result in the estimator with the smallest MSE, but it does give us the estimator with the smallest MSE *among the unbiased estimators.* 
+
+This seems tricky---how do we know we've got the estimator with the smallest MSE among the unbiased estimator? Couldn't there always be another, better unbiased estimator that we haven't considered?
+
+It turns out that we have a theoretical lower bound on the variance of an estimator. No unbiased estimator can have a variance below the **Cramér-Rao Lower Bound**. If an unbiased estimator equals the Cramér-Rao Lower Bound, then we say that estimator **attains** the Cramér-Rao Lower Bound.
+
+We refer to an estimator that attains the Cramér-Rao Lower Bound as the **minimum-variance unbiased estimator** (MVUE) or the **best unbiased estimator** (BUE).
+
+A MVUE estimator is the gold standard. It is possible, though, that a *biased* alternative estimator has a smaller MSE.
+
+It's beyond our scope to establish whether particular estimators are the MVUE. However, in general, the *sample average* is an MVUE of the expected value of a distribution. Alternatively, the sample average is the MVUE of the population average. If you are using $\hat{\theta} = \text{avg}(x)$ to estimate $\theta = E(X)$, then $\hat{\theta}$ is an MVUE.
+
+## Exercises
+
+```{exercise, label="bias-exponential"}
+First, use a computer simulation to check whether the ML estimator $\hat{\lambda} = \frac{1}{\text{avg}(x)}$ of $\lambda$ for the exponential distribution is (at least approximately) unbiased. (See the example for the Poisson distribution above.) Second, prove that the ML estimator of $\lambda$ is biased. Third, check whether the ML estimator $\hat{\mu} = \frac{1}{\hat{lambda}}$ of $\mu = \frac{1}{\lambda}$ is biased.
+
+Explain the implications for the analysis of UK government duration.
+```
+
+<details><summary>Solution</summary>
+```{r}
+lambda <- 4.0      # the parameter we're trying to estimate
+sample_size <- 10  # the sample size we're using in each "study"
+
+n_repeated_samples <- 10000  # the number of times we repeat the "study"
+lambda_hat <- numeric(n_repeated_samples)  # a container 
+for (i in 1:n_repeated_samples) {
+  x <- rexp(sample_size, rate = lambda)
+  lambda_hat[i] <- 1/mean(x)
+}
+
+# long-run average
+mean(lambda_hat)  # hum... seems too big
+```
+$$
+\begin{aligned}
+E\left[ \frac{1}{\text{avg}(x)}\right] = E\left[ \frac{N}{\sum_{n = 1}^N x_n}\right] &= N E \left[ \frac{1}{ \sum_{n = 1}^N  x_n} \right] \\ 
+\text{[notice the greater-than sign here]} \rightarrow  & >  N \left[ \frac{1}{ E \left( \sum_{n = 1}^N  x_n \right) } \right] \text{, by Jensen's inquality; } \frac{1}{x} \text{ is convex.}\\\\
+& =  N \left[ \frac{1}{  \sum_{n = 1}^N  E(x_n)  } \right] \\
+& =  N \left[ \frac{1}{  \sum_{n = 1}^N  \frac{1}{\lambda}  } \right] \\
+& =  N \left[ \frac{1}{   \frac{N}{\lambda}  } \right] \\
+& = \lambda
+\end{aligned}
+$$
+Therefore the bias in $\hat{\lambda}$ is upward, as the simulation shows.
+
+Remember that we can transform ML estimators directly to obtain estimates of the transformations. The ML estimator $\hat{\mu} = \frac{1}{\hat{\lambda}}$ of the average duration $\mu = \frac{1}{\lambda} = E(X)$ is unbiased, though. The math works nearly identically as the math showing that the ML estimator for the toothpaste cap problem. It also follows directly from the fact that the sample average is an unbiased estimator of the population average.
+
+</details>
+
+
+```{exercise, label="consistency-govt-duration"}
+The ML estimator $\hat{\lambda} = \frac{1}{\text{avg}(x)}$ of $\lambda$ for the exponential distribution is consistent. Comment on the relevance for Exercise \@ref{exrml-govt-duration}.
+```
+
+<details><summary>Solution</summary>
+
+Consistency is not helpful for this problem. We have five observations. *At best*, consistency suggests an estimator will work well in large samples. A consistent estimator can be heavily biased in small samples. 
+</details>
+
+```{exercise, label="mvue-govt-duration"}
+Comment on the ML estimator $\hat{\lambda} = \frac{1}{\text{avg}(x)}$ of $\lambda$ for the exponential distribution and the ML estimator $\hat{\mu} = \frac{1}{\hat{\lambda}}$ of the $\mu = \frac{1}{\lambda}$. Comment on the relevance for Exercise \@ref{exrml-govt-duration}.
+```
+
+<details><summary>Solution</summary>
+
+Both estimators are consistent. However, consistency is not helpful in small samples.
+
+$\hat{\mu}$ is unbiased, and $\hat{\lambda}$ is biased. This leads us to prefer $\hat{\mu}$. Further $\hat{\mu}$ is the MVUE, because it's the sample average used to estimate the expected value of the distribution. MVUE is an excellent estimator and it's unusually to prefer another. $\hat{\mu}$ has much better properties than $\hat{\lambda}$---$\hat{\mu}$ is an MVUE, $\hat{\lambda}$ is just consistent.
+
+Perhaps more importantly, $\hat{\mu}$ is easier to interpret as the expected years a government will last. $\hat{\lambda}$ is a bit harder to interpret at the failures per year.
+
+Here's a little simulation illustrating each estimator.
+
+```{r echo=TRUE, fig.height=5, fig.width=10, message=FALSE, warning=FALSE}
+lambda <- 0.5     # a guess at the value in the govt duration problem
+sample_size <- 5  # the sample size in the govt duration problem
+
+n_repeated_samples <- 10000  # the number of times we repeat the "study"
+lambda_hat <- numeric(n_repeated_samples)  # a container 
+mu_hat <- numeric(n_repeated_samples)      # another container 
+for (i in 1:n_repeated_samples) {
+  x <- rexp(sample_size, rate = lambda)
+  lambda_hat[i] <- 1/mean(x)
+   mu_hat[i] <- mean(x)
+}
+
+# long-run average
+mean(lambda_hat)  # hum... seems too big
+mean(mu_hat)      # just right!
+
+library(ggplot2)
+library(patchwork)
+gg1 <- qplot(x = lambda_hat) + 
+  geom_vline(xintercept = lambda) + 
+  geom_vline(xintercept = mean(lambda_hat), color = "red") + 
+  labs(title = "Distribution of lambda-hat in Repeated Samples",
+       subtitle = "Black Line Shows Actual lambda; Red Line Shows E(lambda-hat)")
+gg2 <- qplot(x = mu_hat) + 
+  geom_vline(xintercept = 1/lambda) + 
+  geom_vline(xintercept = mean(mu_hat), color = "red") + 
+  labs(title = "Distribution of mu-hat in Repeated Samples",
+       subtitle = "Black Line Shows Actual mu; Red Line Shows E(lambda-mu)")
+
+gg1 + gg2
+
+```
+</details>
