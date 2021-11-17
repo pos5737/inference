@@ -1,6 +1,6 @@
 # Deriving Point Estimates
 
-In this chapter, I discuss three methods to derive point estimators of quantities of interest: , Bayes' inference, method of moments (briefly), and maximum likelihood.
+In this chapter, I discuss three methods to derive point estimators of quantities of interest: Bayes' inference, method of moments (briefly), and maximum likelihood.
 
 ## Bayesian Inference
 
@@ -14,7 +14,7 @@ Bayesian inference follows a simple recipe:
 
 Suppose a random sample from a distribution $f(x; \theta)$ that depends on the unknown parameter $\theta$. 
 
-Bayesian inference models our *beliefs* about the unknown parameter $\theta$ as a distribution and answers the question: what should we believe about $\theta$, given the observed samples $x = \{x_1, x_2, ..., x_n\}$ from $f(x; \theta)$. These beliefs are simply the conditional distribution $f(\theta \mid x)$.
+Bayesian inference models our *beliefs* about the unknown parameter $\theta$ as a distribution. It answers the question: what should we believe about $\theta$, given the observed samples $x = \{x_1, x_2, ..., x_n\}$ from $f(x; \theta)$? These beliefs are simply the conditional distribution $f(\theta \mid x)$.
 
 By Bayes' rule, $\displaystyle f(\theta \mid x) = \frac{f(x \mid \theta)f(\theta)}{f(x)} = \frac{f(x \mid \theta)f(\theta)}{\displaystyle \int_{-\infty}^\infty f(x \mid \theta)f(\theta) d\theta}$.
 
@@ -54,7 +54,7 @@ The prior describes your beliefs about $\pi$ *before* observing the data.
 
 Here are some questions that we might ask ourselves the following questions:
 
-1. What's the most likely value of $\pi$? *About 0.15.*
+1. What's the most likely value of $\pi$? *Perhaps 0.15.*
 1. Are our beliefs best summarizes by a distribution that's skewed to the left or right? *To the right.*
 1. $\pi$ is about _____, give or take _____ or so. *Perhaps 0.17 and 0.10.*
 1. There's a 25% chance that $\pi$ is less than ____. *Perhaps 0.05.*
@@ -65,8 +65,8 @@ Given these answers, we can sketch the pdf of the prior distribution for $\pi$.
 ```{r echo=FALSE, fig.height=3, fig.width=6, message=FALSE, warning=FALSE}
 library(tidyverse)
 #library(xkcd)
-library(extrafont)
-loadfonts()
+#library(extrafont)
+#loadfonts()
 
 set.seed(1234)
 a <- 3
@@ -80,26 +80,26 @@ ggplot(gg_data, aes(x = s)) +
   scale_x_continuous(limits = c(0, 1)) +
   annotate(geom = "text", x = .35, y = 1, 
            label = "probably not larger than 0.3", 
-           family = "Humor Sans", 
+           #family = "Humor Sans", 
            hjust = "left", 
            color = "grey50") + 
   annotate(geom = "segment", x = .34, xend = 0.30, y = 0.9, yend = 0.5, 
            color = "grey50") + 
   annotate(geom = "text", x = .05, y = 1.5, 
            label = "might be close to zero", 
-           family = "Humor Sans", 
+           #family = "Humor Sans", 
            hjust = "left", 
            color = "grey50") + 
   annotate(geom = "segment", x = .1, xend = 0.03, y = 1.3, yend = 0.3, 
            color = "grey50") + 
     annotate(geom = "text", x = 0.18, y = 5.1, 
-           label = "most likely around 0.12", 
-           family = "Humor Sans", 
+           label = "most likely around 0.15", 
+           #family = "Humor Sans", 
            hjust = "left", 
            color = "grey50") + 
   annotate(geom = "segment", x = .14, xend = 0.17, y = 4.9, yend = 5.05, 
            color = "grey50") + 
-  theme(text = element_text(size = 12, family = "Humor Sans"),
+  theme(text = element_text(size = 12), #, family = "Humor Sans"),
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank()) + 
   scale_y_continuous(breaks = NULL) + 
@@ -113,11 +113,11 @@ Now we need to find a density function that matches these prior beliefs. For thi
 
 So then what beta distribution captures our prior beliefs?
 
-There's a code snippet [here](https://gist.github.com/carlislerainey/45414e0d9f22e4e1960449402e6a8048) to help you explore different beta distributions.
+There's a code snippet [here](https://gist.github.com/carlislerainey/45414e0d9f22e4e1960449402e6a8048) to help you explore different beta distributions (also in the appendix).
 
 After some exploration, we find that setting the parameters $\alpha$ and $\beta$ of the beta distribution to 3 and 15, respectively, captures our prior beliefs about the probability of getting a top.
 
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 ggplot(data_frame(x = seq(0, 1, length.out = 100))) + 
   stat_function(fun = dbeta, args = list(shape1 = 3, shape2 = 15)) + 
   labs(title = "pdf of the beta(3, 15) distribution", x = "pi", y = "prior density")
@@ -328,7 +328,7 @@ However, there are several practical solutions to these difficulties.
 ### Exercises 
 
 ```{exercise, label="bayes-exponential"}
-Suppose we collect $N$ random samples $x = \{x_1, x_2, ..., x_N\}$ and model each draw as a random variable $X \sim \text{expontial}(\lambda)$ with pdf $f(x_n | \lambda) = \lambda e^{-\lambda x_n}$. Find the posterior distribution of $\lambda$ for the gamma prior distribution. Hint: the gamma distribution is the conjugate prior for the exponential likelihood.
+Suppose we collect $N$ random samples $x = \{x_1, x_2, ..., x_N\}$ and model each draw as a random variable $X \sim \text{exponential}(\lambda)$ with pdf $f(x_n | \lambda) = \lambda e^{-\lambda x_n}$. Find the posterior distribution of $\lambda$ for the gamma prior distribution. Hint: the gamma distribution is the conjugate prior for the exponential likelihood.
 ```
 
 <details><summary>Hint</summary>
@@ -499,9 +499,9 @@ Suppose a random variable $X$. Then we refer to $E(X^k)$ as the $k$-th moment of
 
 For example, recall that $V(X) = E \left(X^2 \right) - \left[ E(X)\right]^2$. In example the variance of $X$ is the difference between the second moment and the square of the first moment. 
 
-Recall that the law of large numbers guarantees that $\text{avg}(x) \xrightarrow[]{d} E(X)$. Thus, the first sample moment (the average) converges in probability to the first moment of $f$ (the expected value or mean). 
+Recall that the law of large numbers guarantees that $\text{avg}(x) \xrightarrow[]{p} E(X)$. Thus, the first sample moment (the average) converges in probability to the first moment of $f$ (the expected value or mean). 
 
-By the law of the unconscious statistician, we can similarly guarantee that $\text{avg}(x^k) \xrightarrow[]{d} E(X^k)$. Thus, the sample moments converge in distribution to moments of $f$. 
+By the law of the unconscious statistician, we can similarly guarantee that $\text{avg}(x^k) \xrightarrow[]{p} E(X^k)$. Thus, the sample moments converge in distribution to moments of $f$. 
 
 Now suppose that $f$ has parameters $\theta_1, \theta_2, ..., \theta_k$ so that $X \sim f(\theta_1, \theta_2, ..., \theta_k)$. We know (or can solve) for the moments of $f$ so that $E(X^1) = g_1(\theta_1, \theta_2, ..., \theta_k)$, $E(X^2) = g_2(\theta_1, \theta_2, ..., \theta_k)$, and so on. 
 
@@ -663,7 +663,7 @@ Because of the disadvantages, researchers rarely use the method of moments. Howe
 ### Exercises
 
 ```{exercise, label="mm-exponential"}
-Suppose we collect $N$ random samples $x = \{x_1, x_2, ..., x_N\}$ and model each draw as a random variable $X \sim \text{expontial}(\lambda)$ with pdf $f(x_n | \lambda) = \lambda e^{-\lambda x_n}$. Find the method of moments estimator of $\lambda$. Hint: the mean of the exponential distribution is $\frac{1}{\lambda}.
+Suppose we collect $N$ random samples $x = \{x_1, x_2, ..., x_N\}$ and model each draw as a random variable $X \sim \text{exponential}(\lambda)$ with pdf $f(x_n | \lambda) = \lambda e^{-\lambda x_n}$. Find the method of moments estimator of $\lambda$. Hint: the mean of the exponential distribution is $\frac{1}{\lambda}$.
 ```
 
 <details><summary>Solution</summary>
@@ -724,13 +724,13 @@ To find the ML estimator, we find $\hat{\pi}$ that maximizes $\log L$. In this c
 
 $$
 \begin{aligned}
-\frac{d \log L}{d\hat{\pi}} = y \left( \frac{1}{\hat{\pi}}\right) + (N - y) \left( \frac{1}{1 - \hat{\pi}}\right)(-1) &= 0\\
-\frac{y}{\hat{\pi}} - \frac{N - y}{1 - \hat{\pi}} &= 0 \\
-\frac{y}{\hat{\pi}} &= \frac{N - y}{1 - \hat{\pi}} \\
-y(1 - \hat{\pi}) &= (N - y)\hat{\pi} \\
-y - y\hat{\pi} &= N\hat{\pi} - y\hat{\pi} \\
-y  &= N\hat{\pi} \\
-\hat{\pi} &= \frac{y}{N} = \text{avg}(x)\\
+\frac{d \log L}{d\hat{\pi}} = k \left( \frac{1}{\hat{\pi}}\right) + (N - k) \left( \frac{1}{1 - \hat{\pi}}\right)(-1) &= 0\\
+\frac{k}{\hat{\pi}} - \frac{N - y}{1 - \hat{\pi}} &= 0 \\
+\frac{k}{\hat{\pi}} &= \frac{N - y}{1 - \hat{\pi}} \\
+k(1 - \hat{\pi}) &= (N - y)\hat{\pi} \\
+k - y\hat{\pi} &= N\hat{\pi} - y\hat{\pi} \\
+k  &= N\hat{\pi} \\
+\hat{\pi} &= \frac{k}{N} = \text{avg}(x)\\
 \end{aligned}
 $$
 The ML estimator for the Bernoulli distribution is the fraction of successes, or, equivalently, the average of the Bernoulli trials. 
@@ -826,12 +826,12 @@ The ML estimator for the Poisson distribution is just the average of the samples
 
 The ML estimator is extremely common in political science because they are general, fast, and work extremely well. Lots of models that you've heard of, such as logistic regression, are estimated with ML.
 
-We can even obtain ML estimates for the linear regression model. We assume that the observed data are samples from a normal distribution with mean $\mu_n = \alpha + \beta x_n$ and variance $\sigma^2$. For this model, the least-squares estimate that we learned earlier is also the ML estimates. 
+We can even obtain ML estimates for the linear regression model. We assume that the observed data are samples from a normal distribution with mean $\mu_n = \alpha + \beta x_n$ and variance $\sigma^2$. For this model, the least-squares estimate that we learned earlier is also the ML estimate. 
 
 ### Exercises
 
 ```{exercise, label="ml-exponential"}
-Suppose we collect $N$ random samples $x = \{x_1, x_2, ..., x_N\}$ and model each draw as a random variable $X \sim \text{expontial}(\lambda)$ with pdf $f(x_n | \lambda) = \lambda e^{-\lambda x_n}$. Find the maximum estimator of $\lambda$.
+Suppose we collect $N$ random samples $x = \{x_1, x_2, ..., x_N\}$ and model each draw as a random variable $X \sim \text{exponential}(\lambda)$ with pdf $f(x_n | \lambda) = \lambda e^{-\lambda x_n}$. Find the maximum estimator of $\lambda$.
 ```
 
 <details><summary>Solution</summary>
