@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.4 Exercises | Inference in Six Lessons</title>
   <meta name="description" content="Lecture notes covering the basics concepts of statistical inference for first-year political science PhD students." />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.4 Exercises | Inference in Six Lessons" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Lecture notes covering the basics concepts of statistical inference for first-year political science PhD students." />
   
@@ -24,7 +23,7 @@
 <meta name="author" content="Carlisle Rainey" />
 
 
-<meta name="date" content="2021-11-17" />
+<meta name="date" content="2022-11-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,9 +31,9 @@
   
   
 <link rel="prev" href="mvue-or-bue.html"/>
-<link rel="next" href="appendix-code-for-beta-prior.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<link rel="next" href="deriving-hypothesis-test.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -179,7 +178,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="mvue-or-bue.html"><a href="mvue-or-bue.html"><i class="fa fa-check"></i><b>3.3</b> MVUE or BUE</a></li>
 <li class="chapter" data-level="3.4" data-path="evaluating-point-estimates-exercises.html"><a href="evaluating-point-estimates-exercises.html"><i class="fa fa-check"></i><b>3.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="appendix-code-for-beta-prior.html"><a href="appendix-code-for-beta-prior.html"><i class="fa fa-check"></i><b>4</b> Appendix: Code for Beta Prior</a></li>
+<li class="chapter" data-level="4" data-path="deriving-hypothesis-test.html"><a href="deriving-hypothesis-test.html"><i class="fa fa-check"></i><b>4</b> Deriving Hypothesis Test</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="the-null-and-alternative-hypothesis.html"><a href="the-null-and-alternative-hypothesis.html"><i class="fa fa-check"></i><b>4.1</b> The Null (and Alternative) Hypothesis</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="the-null-and-alternative-hypothesis.html"><a href="the-null-and-alternative-hypothesis.html#the-most-common-null-hypotheses"><i class="fa fa-check"></i><b>4.1.1</b> The Most Common Null Hypotheses</a></li>
+<li class="chapter" data-level="4.1.2" data-path="the-null-and-alternative-hypothesis.html"><a href="the-null-and-alternative-hypothesis.html#errors"><i class="fa fa-check"></i><b>4.1.2</b> Errors</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="test-statistics.html"><a href="test-statistics.html"><i class="fa fa-check"></i><b>4.2</b> Test Statistics</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="test-statistics.html"><a href="test-statistics.html#power-function"><i class="fa fa-check"></i><b>4.2.1</b> Power Function</a></li>
+<li class="chapter" data-level="4.2.2" data-path="test-statistics.html"><a href="test-statistics.html#the-likelihood-ratio-test"><i class="fa fa-check"></i><b>4.2.2</b> The Likelihood Ratio Test</a></li>
+<li class="chapter" data-level="4.2.3" data-path="test-statistics.html"><a href="test-statistics.html#wald-test"><i class="fa fa-check"></i><b>4.2.3</b> Wald Test</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="evaluating-tests.html"><a href="evaluating-tests.html"><i class="fa fa-check"></i><b>4.3</b> Evaluating Tests</a></li>
+<li class="chapter" data-level="4.4" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html"><i class="fa fa-check"></i><b>4.4</b> Size of the LRT</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html#p-values"><i class="fa fa-check"></i><b>4.4.1</b> <em>p</em>-Values</a></li>
+<li class="chapter" data-level="4.4.2" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html#size-of-the-wald-test"><i class="fa fa-check"></i><b>4.4.2</b> Size of the Wald Test</a></li>
+<li class="chapter" data-level="4.4.3" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html#size-of-the"><i class="fa fa-check"></i><b>4.4.3</b> Size of the</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ways-to-find-a-confidence-interval.html"><a href="ways-to-find-a-confidence-interval.html"><i class="fa fa-check"></i><b>5</b> Ways to Find a Confidence Interval</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="ways-to-find-a-confidence-interval.html"><a href="ways-to-find-a-confidence-interval.html#bayesian-tests"><i class="fa fa-check"></i><b>5.0.1</b> Bayesian Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="appendix-code-for-beta-prior.html"><a href="appendix-code-for-beta-prior.html"><i class="fa fa-check"></i><b>6</b> Appendix: Code for Beta Prior</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -199,12 +223,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="evaluating-point-estimates-exercises" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Exercises</h2>
-
+<div id="evaluating-point-estimates-exercises" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Exercises<a href="evaluating-point-estimates-exercises.html#evaluating-point-estimates-exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="exercise">
 <p><span id="exr:bias-exponential" class="exercise"><strong>Exercise 3.1  </strong></span>First, use a computer simulation to check whether the ML estimator <span class="math inline">\(\hat{\lambda} = \frac{1}{\text{avg}(x)}\)</span> of <span class="math inline">\(\lambda\)</span> for the exponential distribution is (at least approximately) unbiased. (See the example for the Poisson distribution above.) Second, prove that the ML estimator of <span class="math inline">\(\lambda\)</span> is biased. Third, check whether the ML estimator <span class="math inline">\(\hat{\mu} = \frac{1}{\hat{\lambda}}\)</span> of <span class="math inline">\(\mu = \frac{1}{\lambda}\)</span> is biased.</p>
-Explain the implications for the analysis of UK government duration.
+<p>Explain the implications for the analysis of UK government duration.</p>
 </div>
 <details>
 <summary>
@@ -225,7 +248,7 @@ Solution
 <pre><code>## [1] 4.436498</code></pre>
 <p><span class="math display">\[
 \begin{aligned}
-E\left[ \frac{1}{\text{avg}(x)}\right] = E\left[ \frac{N}{\sum_{n = 1}^N x_n}\right] &amp;= N E \left[ \frac{1}{ \sum_{n = 1}^N  x_n} \right] \\ 
+E\left[ \frac{1}{\text{avg}(x)}\right] = E\left[ \frac{N}{\sum_{n = 1}^N x_n}\right] &amp;= N E \left[ \frac{1}{ \sum_{n = 1}^N  x_n} \right] \\
 \text{[notice the greater-than sign here]} \rightarrow  &amp; &gt;  N \left[ \frac{1}{ E \left( \sum_{n = 1}^N  x_n \right) } \right] \text{, by Jensen&#39;s inquality; } \frac{1}{x} \text{ is convex.}\\\\
 &amp; =  N \left[ \frac{1}{  \sum_{n = 1}^N  E(x_n)  } \right] \\
 &amp; =  N \left[ \frac{1}{  \sum_{n = 1}^N  \frac{1}{\lambda}  } \right] \\
@@ -236,9 +259,8 @@ E\left[ \frac{1}{\text{avg}(x)}\right] = E\left[ \frac{N}{\sum_{n = 1}^N x_n}\ri
 Therefore the bias in <span class="math inline">\(\hat{\lambda}\)</span> is upward, as the simulation shows.</p>
 <p>Remember that we can transform ML estimators directly to obtain estimates of the transformations. The ML estimator <span class="math inline">\(\hat{\mu} = \frac{1}{\hat{\lambda}}\)</span> of the average duration <span class="math inline">\(\mu = \frac{1}{\lambda} = E(X)\)</span> is unbiased, though. The math works nearly identically as the math showing that the ML estimator for the toothpaste cap problem. It also follows directly from the fact that the sample average is an unbiased estimator of the population average.</p>
 </details>
-
 <div class="exercise">
-<span id="exr:consistency-govt-duration" class="exercise"><strong>Exercise 3.2  </strong></span>The ML estimator <span class="math inline">\(\hat{\lambda} = \frac{1}{\text{avg}(x)}\)</span> of <span class="math inline">\(\lambda\)</span> for the exponential distribution is consistent. Comment on the relevance for Exercise <a href="maximum-likelihood.html#exr:ml-govt-duration">2.6</a>.
+<p><span id="exr:consistency-govt-duration" class="exercise"><strong>Exercise 3.2  </strong></span>The ML estimator <span class="math inline">\(\hat{\lambda} = \frac{1}{\text{avg}(x)}\)</span> of <span class="math inline">\(\lambda\)</span> for the exponential distribution is consistent. Comment on the relevance for Exercise <a href="maximum-likelihood.html#exr:ml-govt-duration">2.6</a>.</p>
 </div>
 <details>
 <summary>
@@ -246,9 +268,8 @@ Solution
 </summary>
 Consistency is not helpful for this problem. We have five observations. <em>At best</em>, consistency suggests an estimator will work well in large samples. A consistent estimator can be heavily biased in small samples.
 </details>
-
 <div class="exercise">
-<span id="exr:mvue-govt-duration" class="exercise"><strong>Exercise 3.3  </strong></span>Comment on the ML estimator <span class="math inline">\(\hat{\lambda} = \frac{1}{\text{avg}(x)}\)</span> of <span class="math inline">\(\lambda\)</span> for the exponential distribution and the ML estimator <span class="math inline">\(\hat{\mu} = \frac{1}{\hat{\lambda}}\)</span> of the <span class="math inline">\(\mu = \frac{1}{\lambda}\)</span>. Comment on the relevance for Exercise <a href="maximum-likelihood.html#exr:ml-govt-duration">2.6</a>.
+<p><span id="exr:mvue-govt-duration" class="exercise"><strong>Exercise 3.3  </strong></span>Comment on the ML estimator <span class="math inline">\(\hat{\lambda} = \frac{1}{\text{avg}(x)}\)</span> of <span class="math inline">\(\lambda\)</span> for the exponential distribution and the ML estimator <span class="math inline">\(\hat{\mu} = \frac{1}{\hat{\lambda}}\)</span> of the <span class="math inline">\(\mu = \frac{1}{\lambda}\)</span>. Comment on the relevance for Exercise <a href="maximum-likelihood.html#exr:ml-govt-duration">2.6</a>.</p>
 </div>
 <details>
 <summary>
@@ -300,11 +321,10 @@ Solution
         </div>
       </div>
 <a href="mvue-or-bue.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="appendix-code-for-beta-prior.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="deriving-hypothesis-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -345,7 +365,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
@@ -361,7 +381,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

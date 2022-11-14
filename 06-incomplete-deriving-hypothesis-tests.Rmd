@@ -1,0 +1,314 @@
+# Deriving Hypothesis Test
+
+[This chapter is incomplete!]
+
+In this chapter, I discuss hypothesis tests. 
+
+## The Null (and Alternative) Hypothesis
+
+A **null hypothesis** $H_0 : \theta \in \Theta_0$ is a statement about the value of a parameter. A null hypothesis states that the parameter $\theta$ takes on a value from particular subset $\Theta_0$ of the parameter space $Theta$.
+
+Typically, the null hypothesis includes the parameter values that the researcher would like to argue against.
+
+A **hypothesis test** is a rule that uses a sample to decide whether to *reject* or *not reject* the null hypothesis. 
+
+A hypothesis testing formal procedure that researcher use to assess the evidence against the null hypothesis. In the context of theory testing, you can think if the null hypothesis as the hypothesis that the theory is *wrong* or that the parameters of interest are insistent with the theory.
+
+Importantly, the result of the hypothesis test will be to either **reject** (i.e., deem false) or **not reject** (i.e., not deem false) the null hypothesis. Crucially, when **not rejecting** the null hypothesis, the researcher does not take the additional step of claiming that the null hypothesis is correct. Instead, they remain agnostic about whether the null hypothesis is true.
+
+To emphasize this point, Tukey and Jones (2000) write: 
+
+> With this formulation, a conclusion is in error only when it is "a reversal," when it asserts one direction while the (unknown) truth is the other direction. Asserting that the direction is not yet established may constitute a wasted opportunity, but it is not an error. We want to control the rate of error, the reversal rate, while minimizing wasted opportunity, that is, while minimizing indefinite results.
+
+Each null hypothesis $H_0 : \theta \in \Theta_0$ implies an opposite hypothesis $H_1 : \theta \in \Theta_0^C$ called the **alternative hypothesis**. Rejecting the null hypothesis is equivalent to accepting the alternative hypothesis. When the researcher does not reject the null hypothesis, they remain agnostic about whether the null hypothesis is true; therefore, they must also remain agnostic about whether the alternative hypothesis is true.
+
+Because the the null and the alternative hypotheses are *exactly* opposites, I leave the alternative as implicit.
+
+A **point null hypothesis** has the form $H_0 : \theta \in \theta_0$, where $\theta_0$ represents *a single point* in the parameter space $\Theta$.
+
+A **composite null hypothesis** has the form $H_0 : \theta \in \Theta_0$, where $\Theta_0$ represents multiple points in the parameter space $\Theta$. 
+
+For example, the null hypothesis $H_0 : \theta \leq 0$ is a composite null hypothesis.
+
+### The Most Common Null Hypotheses
+
+In political science, the most common hypotheses are about differences between the averages of two groups or about slopes in regression model. 
+
+- non-directional null hypothesis for an experiment: $\mu_{\text{treatment}} - \mu_{\text{control}} = 0$.
+- directional null hypothesis for an experiment: $\mu_{\text{treatment}} - \mu_{\text{control}} \leq 0$ or $\mu_{\text{treatment}} - \mu_{\text{control}} \geq 0$.
+- non-directional null hypothesis for a regression slope: $\beta_x = 0$.
+- directional null hypothesis for a regression slope: $\beta_x \leq 0$ or $\beta_x\geq 0$.
+
+### Errors
+
+For each test, there are two possible states: either the null hypothesis is true or it is false. Similarly, there are two possible outcomes: either the researcher rejects they null or they do not.
+
+If the null hypothesis is **true**, then:
+
+- The researcher might (incorrect) reject it, in which case they have made an error. This is (for reasons I don't understand) called a **Type I error**.
+- The researcher might not reject it, in which case they made **no error**. 
+
+If the null hypothesis is **false**, then:
+
+- The researcher might (correctly) reject it, in which case they made **no error**. *This is the most desired outcome.*
+- The researcher might not reject it. The null hypothesis is false, and the researcher did not reject it. However, the researcher (if they followed my advice above) did remain agnostic. So it's not quite an "error"--it's more of a "**lost opportunity**." (The researcher had the correct suspicion, but the data were inconclusive.) This is called a **Type II error**.
+
+## Test Statistics
+
+Suppose a random sample $X$ from $f(x; \theta)$ (a pmf or pdf that with parameter $\theta$). Let $T = r(X)$ and reject the null hypothesis if $T \in R$. The $T$ is a **test statistic** and R is the **rejection region** of the test.
+
+### Power Function
+
+The **power function** of a hypothesis test is the probability that the researcher rejects the hypothesis given the true parameter. Formally, we write $\beta(\theta) = \Pr(T \in R \mid \theta) = \Pr(\text{Reject } H_0 \mid \theta) $.
+
+Notice that we want the power function to be one (or as close as possible) for values of $\theta$ that are consistent with the null hypothesis. Conversely, we want the power function to be zero (or as close as possible) for values of $\theta$ that are *in*consistent with the null hypothesis. 
+
+To see the power function in action, suppose you suspect that I might be a cheater and using a coin biased toward heads in a game of chance. I hand over my coin. You plan to toss it 10 times and to reject the fair-coin hypothesis (and call me a cheater) if you see at least 6 heads in 10 tosses. Then the power function of of the test is $\Pr(\text{more than 6 heads in 10 tosses} \mid \pi)$.
+
+```{r fig.height=2, fig.width=3}
+pi <- seq(0, 1, length.out = 11)
+power <- 1 - pbinom(5, size = 10, prob = pi)
+
+data <- data.frame(pi, power)
+kableExtra::kable(data, digits = 2)
+
+library(ggplot2)
+ggplot(data, aes(x = pi, y = power)) + 
+  geom_line()
+```
+
+This power function shows that when my coin is fair ($\pi = 0.5$), the probability that you will reject that hypothesis and call me a cheater is about 0.38--that seems way to high. 
+
+So you might choose to call me a cheater only if 9 or more of the 10 tosses are heads. Here's that power function:
+
+```{r fig.height=2, fig.width=3}
+power <- 1 - pbinom(8, size = 10, prob = pi)
+
+data <- data.frame(pi, power)
+kableExtra::kable(data, digits = 2)
+
+ggplot(data, aes(x = pi, y = power)) + 
+  geom_line()
+```
+
+That looks a bit better--there's only about a 1% chance that you'll call me a cheater. But there's another problem... even if my coin has a substantial bias toward heads, say $\pi = 0.5$, there's only a 5% chance that you'll (correctly) call me a cheater.
+
+This highlights a trade-off between the two types of errors. As you design a test to make fewer Type I errors (incorrect rejection), it will make more Type II errors (lost opportunity). As you design a test to make fewer Type II errors, it will make more Type I errors.
+
+But because of the conclusions we draw, the errors are not equivalent. A Type I error (incorrect rejection) is a more costly mistake than a Type II error (lost opportunity).
+
+Because of the asymmetry in cost, we design tests to control the Type I error rate. Then, once we've controlled the Type I error rate to an acceptably low level, we minimize the Type II error rate as much as we can.
+
+We say that a test has **size** $\alpha$ if $\text{sup}_{\theta \in \Theta_0} \beta(\theta) = \alpha$. That is, the Type I error rate is at most $\alpha$ across all values of $\theta$ consistent with the null hypothesis.
+
+Similarly, we say that a test has **level** $\alpha$ if $\text{sup}_{\theta \in \Theta_0} \beta(\theta) \leq \alpha$. Notice the inequality. That is, the Type I error rate never exceeds (but doesn't necessarily reach) $\alpha$ across the values of $\theta$ consistent with the null hypothesis. In some cases, we cannot construct a size $\alpha$ test, so we instead really on the less precise idea of a "level."
+
+The key idea is this: We choose the size/level of the test so that the decision to reject the null hypothesis is *convincing*. It's a bit of a logical leap, but this is the idea: We would rarely observe data more unusual than this if the null hypothesis were true, therefore we conclude that the null hypothesis is false.
+
+By convention, we use size-0.05 tests in political science. Occasionally, we use 0.01 or 0.10, but 0.05 is the *overwhelming* standard.
+
+### The Likelihood Ratio Test
+
+Recall that for a random sample $X = \{x_1, ..., x_n\}$, the likelihood function is $L(\theta) = \prod_{i = 1}^n f(x_i \mid \theta)$.
+
+The **likelihood ratio (LR) test statistic** for $H_0 : \theta \in \Theta_0$ is $\lambda_{LR} = \dfrac{\text{sup}_{\Theta_0} L(\theta)}{\text{sup}_{\Theta} L(\theta)}$.
+
+It's helpful to think of $\text{sup}_{\Theta} L(\theta)$ as the largest likelihood across the *entire parameter space* $\Theta$. If we let $\hat{\theta}^{ML}$ represent our usual ML estimate, then $\text{sup}_{\Theta} L(\theta) = L(\hat{\theta}^{ML})$.
+
+On the other hand, $\text{sup}_{\Theta_0} L(\theta)$ is the largest likelihood across the portion of the parameter space *consistent with the null hypothesis*. We are still looking for the value that maximizes the likelihood of the observed data, but we are maximizing across the space *consistent with the null hypothesis* (not the entire parameter space).
+
+The **likelihood ratio (LR) test** has rejection region defined by $\lambda_{LR} \leq c$ for $c \in [0, 1]$. 
+
+If the likelihood of the data is much larger without the restriction in effect, then it's intuitive that the data are inconsistent with the null hypothesis.
+
+But how can we choose $c$ to achieve a size-$\alpha$ or size-0.05 test?
+
+It turns out that transforming $\lambda_{LR}$ slightly helps us here. Define $\lambda^*_{LR} = -2 \log \lambda_{LR}$. (Authors inconsistently refer to $\lambda_{LR}$ and $\lambda^*_{LR}$ as "the likelihood ratio"). Notice that $\lambda_{LR}$ and $\lambda^*_{LR}$ have an inverse relationship; smaller values of $\lambda_{LR}$ are inconsistent with the null hypothesis, but larger values of $\lambda^*_{LR}$ are inconsistent with the null hypothesis. Now we'll reject the null hypothesis if $\lambda^*_{LR} \geq c^*$ (where $c^* = -2 \log c$).
+
+To make the LR test a size-$\alpha$ test, we need to choose rejection threshold $c^*$ so that $\text{sup}_{\theta \in \Theta_0} \Pr(\lambda^*_{LR} \leq c^*) = \alpha$.
+
+To establish this, we need to understand the distribution of $\lambda^*_{LR}$ under repeated sampling. Fortunately, there's a *very general* result for this.
+
+Suppose the researcher has a point null hypothesis $H_0: \theta = \theta_0$, then under certain (but not harsh) regularity conditions, $-2 \log \lambda_{LR} \xrightarrow{d} \chi^2_1$. That is, the distribution of $\lambda^*_{LR}$ converges to the Chi-squared distribution with one degree of freedom.
+
+Suppose we used $\lambda^*_{LR} \geq 2$ as the rejection region, then we can compute the chance of an incorrect rejection if the null hypothesis were indeed true as $\int_2^\infty f_{\chi^2_1}(x \mid \theta = \theta_0) dx$ or `1 - pchisq(2, df = 1)`.
+
+```{r}
+1 - pchisq(2, df = 1)
+```
+
+We can see that rejecting if $\lambda^*_{LR} \geq 2$ would make the error rate too high--we want 5%. 
+
+We can use the inverse cdf function in R to find the threshold that would make the rejection rate 5% under the null hypothesis. 
+
+```{r}
+qchisq(0.95, df = 1)
+```
+
+That's the the test: reject the null hypothesis that $\theta = \theta_0$ if $\lambda^*_{LR} \geq 3.84$.
+
+
+
+### Wald Test
+
+Suppose that the researcher has a point null hypothesis $H_0: \theta = \theta_0$, an estimate $\hat{\theta}$ of $\theta$, and an estimate of the standard deviation of the estimate $\widehat{\text{SD}}(\hat{\theta})$. Then the Wald test statistic has the form $W = \dfrac{\hat{\theta} - \theta_0}{\widehat{\text{SD}}(\hat{\theta})}$.
+
+Notice that as $\hat{\theta}$ gets further from the hypothesized value (relative to the $\widehat{\text{SD}}(\hat{\theta})$), the test statistic $W$ grows in magnitude. Thus, we might use the reject the null hypothesis if $|W| > c$ for $c \geq 0$. 
+
+#### Example: Biased Coin
+
+I claim that my coin is fair; but you suspect I am a cheater. You want to test the null hypothesis that my coin is fair.
+
+So we toss my coin 10 times and obtain six heads. Treating the tosses as a independent Bernoulli random variables with parameter $\pi$, we have a $\hat{\pi}^{ML} = \frac{3}{5}$, so that $\text{sup}_{\Theta} L(\theta) = L \left( \frac{3}{5} \right) = \left( \frac{3}{5} \right)^6 \times \left(\frac{2}{5} \right)^4 \approx 0.001194394$. On the other hand, $\text{sup}_{\Theta_0} L(\theta) = L \left( \frac{1}{2} \right) = \left(\frac{1}{2} \right)^{10} \approx 0.0009765625$. (Because the null hypothesis is a point null, the sup portion of the numerator degenerates.) The we have $\lambda_{LR} = \dfrac{\text{sup}_{\Theta_0} L(\theta)}{\text{sup}_{\Theta} L(\theta)} = \dfrac{0.0009765625}{0.001194394} \approx 0.817622$. This means that the likelihood of the data under the null hypothesis is about 82% of the unrestricted likelihood.
+
+It's a bit unclear at the moment what to make of $\lambda_{LR} \approx 0.82$. Should you reject the null hypothesis and call me a cheater. At the moment, an arbitrary threshold is fine. We might choose $c = 0.9$ and reject the the null hypothesis. 
+
+But is that a good test? Before we can discuss whether that's a good test, we need to cover a few more ideas.
+
+## Evaluating Tests
+
+
+## Size of the LRT
+
+To make the LR test a size-$\alpha$ test, we need to choose rejection threshold $c$ so that $\text{sup}_{\theta \in \Theta_0} \Pr(\lambda_{LR} \leq c) = \alpha$.
+
+To establish this, we need to understand the distribution of $\lambda_{LR}$ under repeated sampling. Fortunately, there's a *very general* result for this.
+
+Suppose the researcher has a point null hypothesis $H_0: \theta = \theta_0$, then under certain (but not harsh) regularity conditions, $-2 \log \lambda_{LR} \xrightarrow{d} \chi^2_1$. That is, the distribution of $-2 \log \lambda_{LR}$ converges to the Chi-squared distribution with one degree of freedom.
+
+We can plot the $\chi^2_1$ distribution.
+
+```{r fig.height=2, fig.width=3}
+x <- seq(0, 10, length.out = 100)
+chi_sq <- dchisq(x, df = 1)
+
+data <- data.frame(x, chi_sq)
+
+ggplot(data, aes(x, chi_sq)) + 
+  geom_line()
+```
+
+If the null hypothesis is correct, then $-2 \log \lambda_{LR}$ is like draws from that distribution. You can see that values above 5, for example, are unlikely. 
+
+But to construct a size-0.5 test, we need to compute the particular threshold so that the probability of an incorrect rejection is 0.05. We can use the inverse-cdf function `qchisq()` to comute this in R.
+
+```{r}
+qchisq(0.95, df = 1)
+```
+
+So if we reject the null hypothesis if $-2 \log \lambda_{LR}$ is greater than 3.841459, then we will incorrectly reject the null hypothesis in about 5% of repeated samples when the null hypothesis is true.
+
+### *p*-Values
+
+A ***p*-value** $p$ is a test statistic between 0 and 1 such that smaller values give evidence *against* the null hypothesis. A *p*-value is **valid** if $\Pr(p \leq \alpha) \leq \alpha$ for all $\theta in \Theta_0$ and every $\alpha \in [0, 1]$.
+
+If a researcher has a valid *p*-value, then they can construct a size-$\alpha$ test by rejecting the null hypothesis if $p \leq \alpha$. 
+
+Suppose a test statistic $T$ (like the LR test statistic) such that large values of $T$ indicate evidence against $H_0$. Let $t$ represent the test statistic obtained from the observed data. Then define $p = \text{sup}_{\theta \in \Theta_0} \Pr(T \geq t) = \alpha$. This $p$ is a valid $p$-value. 
+
+For the likelihood ratio test, we can obtain a *p*-value by plugging the observed $-2 \log \lambda_{LR}$ into the cdf of the Chi-squared distribution. We know that (if the null hypothesis is true), then $-2 \log \lambda_{LR}$ follows a $\chi^2_1$ distribution. So we simply need to compute the fraction of the $\chi^2_1$ pdf that falls about our observed LR statistic.
+
+```{r}
+t <- -2*log(0.817622)
+1 - pchisq(t, df = 1)
+```
+
+This *p*-value is greater than 0.05, so we would not reject the null hypothesis of a fair coin.
+
+### Size of the Wald Test 
+
+Much like the LR test statistic converges to the $\chi^2_1$ distribution, the Wald test statistic converges to the standard normal distribution. 
+
+We typically reject if the absolute value exceeds a particular threshold.
+
+### Size of the 
+
+
+# Ways to Find a Confidence Interval
+
+Invert a Hypothesis Test: find the collection of point hypotheses that cannot be rejected.
+
+### Bayesian Tests
+
+Bayesian tests are quite straightforward. Because we have the posterior distribution, we can simply compute the posterior probability that the parameter lies in the region suggested by the null hypothesis. In other words, we can directly compute the probability that the null hypothesis is true by integrating the posterior over $\Theta_0$ $\Pr(\text{null is true} \mid x) = \Pr(\theta \in \Theta_0) \mid x) = \int_{\Theta_0} f(\theta \mid x) d\theta$.
+
+Typically, we do not make a binary decision about whether or not to reject the null hypothesis in a Bayesian framework. Instead, we would simply report the probability that the alternative hypothesis were true as a degree of belief. 
+
+This presents a conceptual quandary for point null hypotheses: regardless of the data, the posterior probability that the null hypothesis is true will always be zero! Why? Because the area of the posterior distribution over that single point is a like a rectangle with zero width and therefore zero area. 
+
+With Bayesian tests, then, you need a composite null hypothesis such as $H_0: \pi \leq \frac{1}{2}$. 
+
+If we use a $\text{beta(1, 1)}$ (i.e., uniform) prior distribution, the the posterior distribution for the data above would be $\text{beta(1 + 6, 1 + 4)}$.
+
+We can use the cdf function in R to compute $\Pr(\pi \geq 0) \approx 0.27$.
+
+```{r}
+pbeta(0.5, shape1 = 7, shape2 = 5)
+```
+
+So, *for the uniform prior*, you think there's a 27% chance that the coin is not biased toward heads (i.e., biased toward tails). 
+
+A Bayesian test would reject the null hypothesis for some suitably small posterior probability $\Pr(\text{null is true} \mid x)$.
+
+
+
+#### Example: Exponential Distribution
+
+A light bulb company claims that their bulb lasts 10 years on average. I (being a skeptical person) believe the average lifespan is probably shorter than this. I (being a patient person) check the lifespan of 10 of their bulbs, the 10 bulbs lasted 9, 5, 2, 15, 3, 25, 13, 39, 14, and 7 years (respectively).
+
+I've heard that light bulb lifespans follow an exponential distribution, so I choose to model their lifespans as $X \sim \text{exponential}(\lambda)$, where $\lambda$ is the rate parameter (deaths per year). 
+
+The null hypothesis is $H_0: \lambda <= \frac{1}{10}$ (i.e., the average lifespan is greater than or equal to 10 years). Remember that $\lambda$ is a rate--which means "deaths per year"--so a lifespan of 10 years means a rate of $\frac{1}{10}$ deaths per year.
+
+Let's start with the denominator of $\lambda_{LR}$ and remember that $\text{sup}_{\Theta} L(\theta) = L(\hat{\theta}^{ML})$.
+
+From the previous chapter, we know that $\hat{\lambda}^{ML} = \frac{1}{avg(x)}$, so $\hat{\lambda}^{ML} = \frac{1}{13.2} \approx 0.076$. 
+
+Then we can use the `dexp()` function in R to find the likelihood of the data for $\lambda =\hat{\lambda}^{ML}$.
+```{r}
+# data
+x <- c(9, 5, 2, 15, 3, 25, 13, 39, 14, 7)
+
+# ml estimate (unrestricted)
+lambda_hat <- 1/mean(x)
+
+# overall likelihood; denominator
+likelihoods <- dexp(x, rate = lambda_hat)
+L <- prod(likelihoods)
+```
+
+Now we need to do the numerator. It's a bit harder, because we need to know the value of $\lambda$ *that's consistent* with the null hypothesis that maximizes the likelihood function. 
+
+Let's start by plotting the likelihood function.
+
+```{r}
+library(ggplot2)
+ggplot() + 
+  xlim(0.01, 1) + 
+  geom_function(fun = ~ prod(dexp(x, rate = .x)))
+
+```
+
+
+
+```{r}
+# ml estimate (restricted to null hypothesis)
+lambda_hat0 <- 1/10  # parameter is rate = 1/(avg. lifespan)
+
+# overall likelihood; denominator
+likelihoods0 <- dexp(x, rate = lambda_hat0)
+L0 <- prod(likelihoods0)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+

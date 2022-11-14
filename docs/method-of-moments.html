@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.2 Method of Moments | Inference in Six Lessons</title>
   <meta name="description" content="Lecture notes covering the basics concepts of statistical inference for first-year political science PhD students." />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.2 Method of Moments | Inference in Six Lessons" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Lecture notes covering the basics concepts of statistical inference for first-year political science PhD students." />
   
@@ -24,7 +23,7 @@
 <meta name="author" content="Carlisle Rainey" />
 
 
-<meta name="date" content="2021-11-17" />
+<meta name="date" content="2022-11-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="bayesian-inference.html"/>
 <link rel="next" href="maximum-likelihood.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -179,7 +178,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="mvue-or-bue.html"><a href="mvue-or-bue.html"><i class="fa fa-check"></i><b>3.3</b> MVUE or BUE</a></li>
 <li class="chapter" data-level="3.4" data-path="evaluating-point-estimates-exercises.html"><a href="evaluating-point-estimates-exercises.html"><i class="fa fa-check"></i><b>3.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="appendix-code-for-beta-prior.html"><a href="appendix-code-for-beta-prior.html"><i class="fa fa-check"></i><b>4</b> Appendix: Code for Beta Prior</a></li>
+<li class="chapter" data-level="4" data-path="deriving-hypothesis-test.html"><a href="deriving-hypothesis-test.html"><i class="fa fa-check"></i><b>4</b> Deriving Hypothesis Test</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="the-null-and-alternative-hypothesis.html"><a href="the-null-and-alternative-hypothesis.html"><i class="fa fa-check"></i><b>4.1</b> The Null (and Alternative) Hypothesis</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="the-null-and-alternative-hypothesis.html"><a href="the-null-and-alternative-hypothesis.html#the-most-common-null-hypotheses"><i class="fa fa-check"></i><b>4.1.1</b> The Most Common Null Hypotheses</a></li>
+<li class="chapter" data-level="4.1.2" data-path="the-null-and-alternative-hypothesis.html"><a href="the-null-and-alternative-hypothesis.html#errors"><i class="fa fa-check"></i><b>4.1.2</b> Errors</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="test-statistics.html"><a href="test-statistics.html"><i class="fa fa-check"></i><b>4.2</b> Test Statistics</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="test-statistics.html"><a href="test-statistics.html#power-function"><i class="fa fa-check"></i><b>4.2.1</b> Power Function</a></li>
+<li class="chapter" data-level="4.2.2" data-path="test-statistics.html"><a href="test-statistics.html#the-likelihood-ratio-test"><i class="fa fa-check"></i><b>4.2.2</b> The Likelihood Ratio Test</a></li>
+<li class="chapter" data-level="4.2.3" data-path="test-statistics.html"><a href="test-statistics.html#wald-test"><i class="fa fa-check"></i><b>4.2.3</b> Wald Test</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="evaluating-tests.html"><a href="evaluating-tests.html"><i class="fa fa-check"></i><b>4.3</b> Evaluating Tests</a></li>
+<li class="chapter" data-level="4.4" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html"><i class="fa fa-check"></i><b>4.4</b> Size of the LRT</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html#p-values"><i class="fa fa-check"></i><b>4.4.1</b> <em>p</em>-Values</a></li>
+<li class="chapter" data-level="4.4.2" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html#size-of-the-wald-test"><i class="fa fa-check"></i><b>4.4.2</b> Size of the Wald Test</a></li>
+<li class="chapter" data-level="4.4.3" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html#size-of-the"><i class="fa fa-check"></i><b>4.4.3</b> Size of the</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ways-to-find-a-confidence-interval.html"><a href="ways-to-find-a-confidence-interval.html"><i class="fa fa-check"></i><b>5</b> Ways to Find a Confidence Interval</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="ways-to-find-a-confidence-interval.html"><a href="ways-to-find-a-confidence-interval.html#bayesian-tests"><i class="fa fa-check"></i><b>5.0.1</b> Bayesian Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="appendix-code-for-beta-prior.html"><a href="appendix-code-for-beta-prior.html"><i class="fa fa-check"></i><b>6</b> Appendix: Code for Beta Prior</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -199,10 +223,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="method-of-moments" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Method of Moments</h2>
-<div id="mechanics-1" class="section level3" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Mechanics</h3>
+<div id="method-of-moments" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Method of Moments<a href="method-of-moments.html#method-of-moments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="mechanics-1" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Mechanics<a href="method-of-moments.html#mechanics-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose a random variable <span class="math inline">\(X\)</span>. Then we refer to <span class="math inline">\(E(X^k)\)</span> as the <span class="math inline">\(k\)</span>-th moment of the distribution or population. Similarly, we refer to <span class="math inline">\(\text{avg}(x^k)\)</span> as the <span class="math inline">\(k\)</span>-th sample moment.</p>
 <p>For example, recall that <span class="math inline">\(V(X) = E \left(X^2 \right) - \left[ E(X)\right]^2\)</span>. In example the variance of <span class="math inline">\(X\)</span> is the difference between the second moment and the square of the first moment.</p>
 <p>Recall that the law of large numbers guarantees that <span class="math inline">\(\text{avg}(x) \xrightarrow[]{p} E(X)\)</span>. Thus, the first sample moment (the average) converges in probability to the first moment of <span class="math inline">\(f\)</span> (the expected value or mean).</p>
@@ -210,8 +234,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now suppose that <span class="math inline">\(f\)</span> has parameters <span class="math inline">\(\theta_1, \theta_2, ..., \theta_k\)</span> so that <span class="math inline">\(X \sim f(\theta_1, \theta_2, ..., \theta_k)\)</span>. We know (or can solve) for the moments of <span class="math inline">\(f\)</span> so that <span class="math inline">\(E(X^1) = g_1(\theta_1, \theta_2, ..., \theta_k)\)</span>, <span class="math inline">\(E(X^2) = g_2(\theta_1, \theta_2, ..., \theta_k)\)</span>, and so on.</p>
 <p>To use the method of moments, set the first <span class="math inline">\(k\)</span> sample moments equal to the first <span class="math inline">\(k\)</span> moments of <span class="math inline">\(f\)</span> and relabel <span class="math inline">\(\theta_i\)</span> as <span class="math inline">\(\hat{\theta}_i\)</span>. Solve the system of equations for each <span class="math inline">\(\hat{\theta}_i\)</span>.</p>
 </div>
-<div id="example-gamma-distribution" class="section level3" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Example: Gamma Distribution</h3>
+<div id="example-gamma-distribution" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Example: Gamma Distribution<a href="method-of-moments.html#example-gamma-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose we have <span class="math inline">\(N\)</span> samples with replacement <span class="math inline">\(x_n\)</span> for <span class="math inline">\(n \in \{1, 2, ..., N\}\)</span> from a <span class="math inline">\(\text{gamma}(\alpha, \beta)\)</span> distribution. We can use the method of moments to derive estimators of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. We have two parameters, so we use the first two moments of <span class="math inline">\(f\)</span>. For the gamma distribution, <span class="math inline">\(E(X) = \frac{\alpha}{\beta}\)</span> and <span class="math inline">\(E(X^2) = V(X) + E(X)^2 = \frac{\alpha}{\beta^2} + \left( \frac{\alpha}{\beta} \right)^2 = \frac{\alpha(\alpha + 1)}{\beta^2}\)</span>.</p>
 <p>Since we have two parameters, we set the first two sample moments equal to the first two moments of the gamma distribution, add hats, and solve.</p>
 <p><span class="math display">\[
@@ -228,8 +252,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \end{aligned}
 \]</span></p>
 </div>
-<div id="example-toothpaste-cap-problem" class="section level3" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Example: Toothpaste Cap Problem</h3>
+<div id="example-toothpaste-cap-problem" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Example: Toothpaste Cap Problem<a href="method-of-moments.html#example-toothpaste-cap-problem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We have a toothpaste cap–one with a wide bottom and a narrow top. We’re going to toss the toothpaste cap. It can either end up lying on its side, its (wide) bottom, or its (narrow) top.</p>
 <p>We want to estimate the probability of the toothpaste cap landing on its top.</p>
 <p>We can model each toss as a Bernoulli trial, thinking of each toss as a random variable <span class="math inline">\(X\)</span> where <span class="math inline">\(X \sim \text{Bernoulli}(\pi)\)</span>. If the cap lands on its top, we think of the outcome as 1. If not, as 0.</p>
@@ -243,21 +267,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This process is nearly trivial for the Bernoulli distribution. <span class="math inline">\(\text{sample average} = \frac{k}{N} = \hat{\pi}\)</span>.</p>
 <p>Thus, the fraction of the draws that land on their top is the methods of moments estimator of the probability of getting a top.</p>
 </div>
-<div id="example-population-average" class="section level3" number="2.2.4">
-<h3><span class="header-section-number">2.2.4</span> Example: Population Average</h3>
+<div id="example-population-average" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Example: Population Average<a href="method-of-moments.html#example-population-average" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose we have <span class="math inline">\(N\)</span> samples with replacement <span class="math inline">\(x_n\)</span> for <span class="math inline">\(n \in \{1, 2, ..., N\}\)</span> from a population. We want to estimate the population average.</p>
 <p>To estimate the population average, we would simply set the first sample moment <span class="math inline">\(m_1 = \displaystyle \frac{1}{n} \sum_{n = 1}^{N} x_n^1\)</span> equal to the first population moment <span class="math inline">\(\mu_1 = E(X^1)\)</span>. Then we equate the sample moments to the population moments, add hats to the quantities of interest, and solve. Because <span class="math inline">\(E(X^1)\)</span> it the population average, there’s not much work to do.</p>
 <p><span class="math display">\[
 \begin{aligned}
 m_1 &amp;= \mu_1\\
 \displaystyle \frac{1}{N} \sum_{n = 1}^{N} x_n &amp;=  \widehat{E(X)}\\
- &amp;=  \text{estimate of population average}\\
+&amp;=  \text{estimate of population average}\\
 \end{aligned}
 \]</span></p>
 <p>Once we solve for the quantity of interest, we can use that solution to <em>estimate</em> the quantity of interest. In this example, the sample average <span class="math inline">\(\displaystyle \frac{1}{n} \sum_{n = 1}^{N} X_n\)</span> is methods of moments estimator of the population average.</p>
 </div>
-<div id="example-population-average-and-sd" class="section level3" number="2.2.5">
-<h3><span class="header-section-number">2.2.5</span> Example: Population Average and SD</h3>
+<div id="example-population-average-and-sd" class="section level3 hasAnchor" number="2.2.5">
+<h3><span class="header-section-number">2.2.5</span> Example: Population Average and SD<a href="method-of-moments.html#example-population-average-and-sd" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose we also want the population SD. We set the second sample moment <span class="math inline">\(m_2 = \displaystyle \frac{1}{n} \sum_{n = 1}^{N} x_n^2\)</span> equal to the second population moment <span class="math inline">\(\mu_2 = E(X^2)\)</span>. Then we equate the sample moments to the population moments and solve for the quantities of interest.</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -269,7 +293,7 @@ Recall that the variance equals <span class="math inline">\(V(X) = E \left( X^2 
 <p><span class="math display">\[
 \begin{aligned}
 \displaystyle \sqrt{\frac{1}{N} \sum_{n = 1}^{N} x_n^2 - \left[ \displaystyle \frac{1}{N} \sum_{n = 1}^{N} x_n \right]^2} &amp;=  \sqrt{\widehat{E(X^2)} - \widehat{E(X)}^2}\\
- &amp;= \text{estimate of population SD}
+&amp;= \text{estimate of population SD}
 \end{aligned}
 \]</span>
 In this case, the <em>sample SD</em> is the methods of moments estimator for the population SD.</p>
@@ -279,8 +303,8 @@ In this case, the <em>sample SD</em> is the methods of moments estimator for the
 <li>Some authors recommend using <span class="math inline">\(N - 1\)</span> rather than <span class="math inline">\(N\)</span>, so that <span class="math inline">\(\sqrt{\frac{1}{N - 1} \sum_{n = 1}^{N} x_n^2 - \left[ \frac{1}{N - 1} \sum_{n = 1}^{N} x_n \right]^2}\)</span>. However, the formula using <span class="math inline">\(N - 1\)</span> is not the methods of moments estimator of the population SD.</li>
 </ul>
 </div>
-<div id="example-german-tank-problem" class="section level3" number="2.2.6">
-<h3><span class="header-section-number">2.2.6</span> Example: German Tank Problem</h3>
+<div id="example-german-tank-problem" class="section level3 hasAnchor" number="2.2.6">
+<h3><span class="header-section-number">2.2.6</span> Example: German Tank Problem<a href="method-of-moments.html#example-german-tank-problem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In World War II, the Germans manufactured some unknown number of tanks <span class="math inline">\(\nu\)</span>, but gave each a sequential serial number <span class="math inline">\(S = \{1, 2, ..., \nu\}\)</span>. It’s of great strategic importance to know the <span class="math inline">\(\nu\)</span>, the total number of tanks manufactured.</p>
 <p>When the Allies would destroy or capture a tank, they would record the serial number. Soon they had a data set of <span class="math inline">\(N\)</span> observed serial numbers <span class="math inline">\(\{x_1, x_2, ..., x_N\}\)</span>, which they can treat as random without replacement from <span class="math inline">\(S\)</span>.</p>
 <p>Using the MOM, we can develop an estimator <span class="math inline">\(\hat{\nu}_{MM}\)</span> of the parameter <span class="math inline">\(\nu\)</span>. We have only a single parameter <span class="math inline">\(\nu\)</span>, so we match just the first sample moment <span class="math inline">\(\frac{1}{N}\sum x^1_i = \text{avg}(x)\)</span> with the first population moment <span class="math inline">\(E(X) = \frac{\nu + 1}{2}\)</span>.</p>
@@ -326,8 +350,8 @@ In this case, the <em>sample SD</em> is the methods of moments estimator for the
 ## Sim. #5: 001, 030, 038, 039, 076 --&gt; nu_hat = 72.6</code></pre>
 <p>Take a look at the 5 data sets above and the associated MOM estimates. Supposing you didn’t know <span class="math inline">\(\nu\)</span>, would these estimates seem reasonable? Can you spot any problems? (Look closely at Simulation #5.)</p>
 </div>
-<div id="remarks-1" class="section level3" number="2.2.7">
-<h3><span class="header-section-number">2.2.7</span> Remarks</h3>
+<div id="remarks-1" class="section level3 hasAnchor" number="2.2.7">
+<h3><span class="header-section-number">2.2.7</span> Remarks<a href="method-of-moments.html#remarks-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The method of moments has some advantages:</p>
 <ol style="list-style-type: decimal">
 <li>MOM intuitive; it just makes sense that the sample mean is a reasonable estimate of the population mean.</li>
@@ -345,11 +369,10 @@ In this case, the <em>sample SD</em> is the methods of moments estimator for the
 <li><span class="math inline">\(\sqrt{\frac{1}{N} \sum_{n = 1}^{N} x_n^2 - \left[ \frac{1}{N} \sum_{n = 1}^{N} x_n \right]^2}\)</span> is a reasonable estimate of the population SD.</li>
 </ol>
 </div>
-<div id="exercises-1" class="section level3" number="2.2.8">
-<h3><span class="header-section-number">2.2.8</span> Exercises</h3>
-
+<div id="exercises-1" class="section level3 hasAnchor" number="2.2.8">
+<h3><span class="header-section-number">2.2.8</span> Exercises<a href="method-of-moments.html#exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="exercise">
-<span id="exr:mm-exponential" class="exercise"><strong>Exercise 2.3  </strong></span>Suppose we collect <span class="math inline">\(N\)</span> random samples <span class="math inline">\(x = \{x_1, x_2, ..., x_N\}\)</span> and model each draw as a random variable <span class="math inline">\(X \sim \text{exponential}(\lambda)\)</span> with pdf <span class="math inline">\(f(x_n | \lambda) = \lambda e^{-\lambda x_n}\)</span>. Find the method of moments estimator of <span class="math inline">\(\lambda\)</span>. Hint: the mean of the exponential distribution is <span class="math inline">\(\frac{1}{\lambda}\)</span>.
+<p><span id="exr:mm-exponential" class="exercise"><strong>Exercise 2.3  </strong></span>Suppose we collect <span class="math inline">\(N\)</span> random samples <span class="math inline">\(x = \{x_1, x_2, ..., x_N\}\)</span> and model each draw as a random variable <span class="math inline">\(X \sim \text{exponential}(\lambda)\)</span> with pdf <span class="math inline">\(f(x_n | \lambda) = \lambda e^{-\lambda x_n}\)</span>. Find the method of moments estimator of <span class="math inline">\(\lambda\)</span>. Hint: the mean of the exponential distribution is <span class="math inline">\(\frac{1}{\lambda}\)</span>.</p>
 </div>
 <details>
 <summary>
@@ -357,10 +380,9 @@ Solution
 </summary>
 Since we have a single parameter to estimate, we just set the first sample moment (the average) equal to the first moment of the distribution (the mean; <span class="math inline">\(\frac{1}{\lambda}\)</span>) and add a hat. Thus, <span class="math inline">\(\text{avg}(x) = \frac{1}{\hat{\lambda}}\)</span> and therefore <span class="math inline">\(\hat{\lambda} = \frac{1}{\text{avg}(x)}\)</span>.
 </details>
-
 <div class="exercise">
 <p><span id="exr:mm-govt-duration" class="exercise"><strong>Exercise 2.4  </strong></span>Model the data from Exercise <a href="bayesian-inference.html#exr:govt-duration-bayes">2.2</a> as draws from an exponential distribution with rate parameter <span class="math inline">\(\lambda\)</span>. Use the method of moments estimator from Exercise <a href="method-of-moments.html#exr:mm-exponential">2.3</a> to estimate <span class="math inline">\(\lambda\)</span>.</p>
-What if you want to estimate the mean duration <span class="math inline">\(\mu = \frac{1}{\lambda}\)</span> rather than the failure rate <span class="math inline">\(\lambda\)</span>? Can you just use <span class="math inline">\(\hat{\mu} = \frac{1}{\hat{\lambda}}\)</span>?
+<p>What if you want to estimate the mean duration <span class="math inline">\(\mu = \frac{1}{\lambda}\)</span> rather than the failure rate <span class="math inline">\(\lambda\)</span>? Can you just use <span class="math inline">\(\hat{\mu} = \frac{1}{\hat{\lambda}}\)</span>?</p>
 </div>
 <details>
 <summary>
@@ -383,7 +405,6 @@ Solution
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -424,7 +445,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
@@ -440,7 +461,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

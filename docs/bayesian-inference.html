@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.1 Bayesian Inference | Inference in Six Lessons</title>
   <meta name="description" content="Lecture notes covering the basics concepts of statistical inference for first-year political science PhD students." />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.1 Bayesian Inference | Inference in Six Lessons" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Lecture notes covering the basics concepts of statistical inference for first-year political science PhD students." />
   
@@ -24,7 +23,7 @@
 <meta name="author" content="Carlisle Rainey" />
 
 
-<meta name="date" content="2021-11-17" />
+<meta name="date" content="2022-11-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="deriving-point-estimates.html"/>
 <link rel="next" href="method-of-moments.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -179,7 +178,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="mvue-or-bue.html"><a href="mvue-or-bue.html"><i class="fa fa-check"></i><b>3.3</b> MVUE or BUE</a></li>
 <li class="chapter" data-level="3.4" data-path="evaluating-point-estimates-exercises.html"><a href="evaluating-point-estimates-exercises.html"><i class="fa fa-check"></i><b>3.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="appendix-code-for-beta-prior.html"><a href="appendix-code-for-beta-prior.html"><i class="fa fa-check"></i><b>4</b> Appendix: Code for Beta Prior</a></li>
+<li class="chapter" data-level="4" data-path="deriving-hypothesis-test.html"><a href="deriving-hypothesis-test.html"><i class="fa fa-check"></i><b>4</b> Deriving Hypothesis Test</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="the-null-and-alternative-hypothesis.html"><a href="the-null-and-alternative-hypothesis.html"><i class="fa fa-check"></i><b>4.1</b> The Null (and Alternative) Hypothesis</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="the-null-and-alternative-hypothesis.html"><a href="the-null-and-alternative-hypothesis.html#the-most-common-null-hypotheses"><i class="fa fa-check"></i><b>4.1.1</b> The Most Common Null Hypotheses</a></li>
+<li class="chapter" data-level="4.1.2" data-path="the-null-and-alternative-hypothesis.html"><a href="the-null-and-alternative-hypothesis.html#errors"><i class="fa fa-check"></i><b>4.1.2</b> Errors</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="test-statistics.html"><a href="test-statistics.html"><i class="fa fa-check"></i><b>4.2</b> Test Statistics</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="test-statistics.html"><a href="test-statistics.html#power-function"><i class="fa fa-check"></i><b>4.2.1</b> Power Function</a></li>
+<li class="chapter" data-level="4.2.2" data-path="test-statistics.html"><a href="test-statistics.html#the-likelihood-ratio-test"><i class="fa fa-check"></i><b>4.2.2</b> The Likelihood Ratio Test</a></li>
+<li class="chapter" data-level="4.2.3" data-path="test-statistics.html"><a href="test-statistics.html#wald-test"><i class="fa fa-check"></i><b>4.2.3</b> Wald Test</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="evaluating-tests.html"><a href="evaluating-tests.html"><i class="fa fa-check"></i><b>4.3</b> Evaluating Tests</a></li>
+<li class="chapter" data-level="4.4" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html"><i class="fa fa-check"></i><b>4.4</b> Size of the LRT</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html#p-values"><i class="fa fa-check"></i><b>4.4.1</b> <em>p</em>-Values</a></li>
+<li class="chapter" data-level="4.4.2" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html#size-of-the-wald-test"><i class="fa fa-check"></i><b>4.4.2</b> Size of the Wald Test</a></li>
+<li class="chapter" data-level="4.4.3" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html#size-of-the"><i class="fa fa-check"></i><b>4.4.3</b> Size of the</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ways-to-find-a-confidence-interval.html"><a href="ways-to-find-a-confidence-interval.html"><i class="fa fa-check"></i><b>5</b> Ways to Find a Confidence Interval</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="ways-to-find-a-confidence-interval.html"><a href="ways-to-find-a-confidence-interval.html#bayesian-tests"><i class="fa fa-check"></i><b>5.0.1</b> Bayesian Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="appendix-code-for-beta-prior.html"><a href="appendix-code-for-beta-prior.html"><i class="fa fa-check"></i><b>6</b> Appendix: Code for Beta Prior</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -199,16 +223,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="bayesian-inference" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Bayesian Inference</h2>
+<div id="bayesian-inference" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Bayesian Inference<a href="bayesian-inference.html#bayesian-inference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Bayesian inference follows a simple recipe:</p>
 <ol style="list-style-type: decimal">
 <li>Choose a distribution for the data.</li>
 <li>Choose a distribution to describe your prior beliefs.</li>
 <li>Update the prior distribution upon observing the data by computing the posterior distribution.</li>
 </ol>
-<div id="mechanics" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Mechanics</h3>
+<div id="mechanics" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Mechanics<a href="bayesian-inference.html#mechanics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose a random sample from a distribution <span class="math inline">\(f(x; \theta)\)</span> that depends on the unknown parameter <span class="math inline">\(\theta\)</span>.</p>
 <p>Bayesian inference models our <em>beliefs</em> about the unknown parameter <span class="math inline">\(\theta\)</span> as a distribution. It answers the question: what should we believe about <span class="math inline">\(\theta\)</span>, given the observed samples <span class="math inline">\(x = \{x_1, x_2, ..., x_n\}\)</span> from <span class="math inline">\(f(x; \theta)\)</span>? These beliefs are simply the conditional distribution <span class="math inline">\(f(\theta \mid x)\)</span>.</p>
 <p>By Bayes’ rule, <span class="math inline">\(\displaystyle f(\theta \mid x) = \frac{f(x \mid \theta)f(\theta)}{f(x)} = \frac{f(x \mid \theta)f(\theta)}{\displaystyle \int_{-\infty}^\infty f(x \mid \theta)f(\theta) d\theta}\)</span>.</p>
@@ -236,15 +260,15 @@ There are four parts to a Bayesian analysis.</p>
 <blockquote>
 <p>Suppose we toss the cap <span class="math inline">\(N\)</span> times and observe <span class="math inline">\(k\)</span> tops. What is the posterior distribution of <span class="math inline">\(\pi\)</span>?</p>
 </blockquote>
-<div id="likelihood" class="section level4" number="2.1.1.1">
-<h4><span class="header-section-number">2.1.1.1</span> The Likelihood</h4>
+<div id="likelihood" class="section level4 hasAnchor" number="2.1.1.1">
+<h4><span class="header-section-number">2.1.1.1</span> The Likelihood<a href="bayesian-inference.html#likelihood" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>According to the model <span class="math inline">\(f(x_i \mid \pi) = \pi^{x_i} (1 - \pi)^{(1 - x_i)}\)</span>. Because the samples are iid, we can find the <em>joint</em> distribution <span class="math inline">\(f(x) = f(x_1) \times ... \times f(x_N) = \prod_{i = 1}^N f(x_i)\)</span>. We’re just multiplying <span class="math inline">\(k\)</span> <span class="math inline">\(\pi\)</span>s (i.e., each of the <span class="math inline">\(k\)</span> ones has probability <span class="math inline">\(\pi\)</span>) and <span class="math inline">\((N - k)\)</span> <span class="math inline">\((1 - \pi)\)</span>s (i.e., each of the <span class="math inline">\(N - k\)</span> zeros has probability <span class="math inline">\(1 - \pi\)</span>), so that the <span class="math inline">\(f(x | \pi) = \pi^{k} (1 - \pi)^{(N - k)}\)</span>.</p>
 <p><span class="math display">\[
 \text{the likelihood:  } f(x | \pi) = \pi^{k} (1 - \pi)^{(N - k)}, \text{where } k = \sum_{n = 1}^N x_n \\
 \]</span></p>
 </div>
-<div id="the-prior" class="section level4" number="2.1.1.2">
-<h4><span class="header-section-number">2.1.1.2</span> The Prior</h4>
+<div id="the-prior" class="section level4 hasAnchor" number="2.1.1.2">
+<h4><span class="header-section-number">2.1.1.2</span> The Prior<a href="bayesian-inference.html#the-prior" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The prior describes your beliefs about <span class="math inline">\(\pi\)</span> <em>before</em> observing the data.</p>
 <p>Here are some questions that we might ask ourselves the following questions:</p>
 <ol style="list-style-type: decimal">
@@ -267,8 +291,8 @@ The pdf of the beta distribution is <span class="math inline">\(f(x) = \frac{1}{
 \text{the prior:  }  f(\pi) = \frac{1}{B(\alpha^*, \beta^*)} \pi^{\alpha^* - 1}(1 - \pi)^{\beta^* - 1}
 \]</span></p>
 </div>
-<div id="the-posterior" class="section level4" number="2.1.1.3">
-<h4><span class="header-section-number">2.1.1.3</span> The Posterior</h4>
+<div id="the-posterior" class="section level4 hasAnchor" number="2.1.1.3">
+<h4><span class="header-section-number">2.1.1.3</span> The Posterior<a href="bayesian-inference.html#the-posterior" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Now we need to compute the posterior by multiplying the likelihood times the prior and then finding the normalizing constant.
 <span class="math display">\[
 \text{the posterior: } \displaystyle \underbrace{f(\pi \mid x)}_{\text{posterior}} = \frac{\overbrace{f(x \mid \pi)}^{\text{likelihood}} \times \overbrace{f(\pi)}^{\text{prior}}}{\displaystyle \underbrace{\int_{-\infty}^\infty f(x \mid \pi)f(\pi) d\pi}_{\text{normalizing constant}}} \\
@@ -324,8 +348,8 @@ Recalling that <span class="math inline">\(x^a \times x^b = x^{a + b}\)</span>, 
 <span id="cb1-22"><a href="bayesian-inference.html#cb1-22" aria-hidden="true" tabindex="-1"></a>gg_prior <span class="sc">+</span> gg_posterior</span></code></pre></div>
 <p><img src="inference_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
 </div>
-<div id="bayesian-point-estimates" class="section level4" number="2.1.1.4">
-<h4><span class="header-section-number">2.1.1.4</span> Bayesian Point Estimates</h4>
+<div id="bayesian-point-estimates" class="section level4 hasAnchor" number="2.1.1.4">
+<h4><span class="header-section-number">2.1.1.4</span> Bayesian Point Estimates<a href="bayesian-inference.html#bayesian-point-estimates" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In this section, we want <em>point estimates</em>—a best guess at the parameter—not a full posterior distribution.</p>
 <p>We have three options:</p>
 <ol style="list-style-type: decimal">
@@ -335,8 +359,8 @@ Recalling that <span class="math inline">\(x^a \times x^b = x^{a + b}\)</span>, 
 </ol>
 </div>
 </div>
-<div id="example-poisson-distribution" class="section level3" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> Example: Poisson Distribution</h3>
+<div id="example-poisson-distribution" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Example: Poisson Distribution<a href="bayesian-inference.html#example-poisson-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose we collect <span class="math inline">\(N\)</span> random samples <span class="math inline">\(x = \{x_1, x_2, ..., x_N\}\)</span> and model each draw as a random variable <span class="math inline">\(X \sim \text{Poisson}(\lambda)\)</span>. Find the posterior distribution of <span class="math inline">\(\lambda\)</span> for the gamma prior distribution. Hint: the gamma distribution is the conjugate prior for the Poisson likelihood.</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -413,8 +437,8 @@ Now we can collect the exponents with the same base.</p>
 <span id="cb9-2"><a href="bayesian-inference.html#cb9-2" aria-hidden="true" tabindex="-1"></a>(alpha_posterior <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">/</span>beta_posterior</span></code></pre></div>
 <pre><code>## [1] 1.5</code></pre>
 </div>
-<div id="remarks" class="section level3" number="2.1.3">
-<h3><span class="header-section-number">2.1.3</span> Remarks</h3>
+<div id="remarks" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Remarks<a href="bayesian-inference.html#remarks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Bayesian inference presents two difficulties.</p>
 <ol style="list-style-type: decimal">
 <li>Choosing a prior.
@@ -441,11 +465,10 @@ Now we can collect the exponents with the same base.</p>
 </ol></li>
 </ol>
 </div>
-<div id="exercises" class="section level3" number="2.1.4">
-<h3><span class="header-section-number">2.1.4</span> Exercises</h3>
-
+<div id="exercises" class="section level3 hasAnchor" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Exercises<a href="bayesian-inference.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="exercise">
-<span id="exr:bayes-exponential" class="exercise"><strong>Exercise 2.1  </strong></span>Suppose we collect <span class="math inline">\(N\)</span> random samples <span class="math inline">\(x = \{x_1, x_2, ..., x_N\}\)</span> and model each draw as a random variable <span class="math inline">\(X \sim \text{exponential}(\lambda)\)</span> with pdf <span class="math inline">\(f(x_n | \lambda) = \lambda e^{-\lambda x_n}\)</span>. Find the posterior distribution of <span class="math inline">\(\lambda\)</span> for the gamma prior distribution. Hint: the gamma distribution is the conjugate prior for the exponential likelihood.
+<p><span id="exr:bayes-exponential" class="exercise"><strong>Exercise 2.1  </strong></span>Suppose we collect <span class="math inline">\(N\)</span> random samples <span class="math inline">\(x = \{x_1, x_2, ..., x_N\}\)</span> and model each draw as a random variable <span class="math inline">\(X \sim \text{exponential}(\lambda)\)</span> with pdf <span class="math inline">\(f(x_n | \lambda) = \lambda e^{-\lambda x_n}\)</span>. Find the posterior distribution of <span class="math inline">\(\lambda\)</span> for the gamma prior distribution. Hint: the gamma distribution is the conjugate prior for the exponential likelihood.</p>
 </div>
 <details>
 <summary>
@@ -475,7 +498,6 @@ Solution
 \end{aligned}
 \]</span></p>
 </details>
-
 <div class="exercise">
 <p><span id="exr:govt-duration-bayes" class="exercise"><strong>Exercise 2.2  </strong></span>You are a researcher interesting in government duration in parliamentary democracies. You decide to model duration as an exponential distribution. To estimate the parameter <span class="math inline">\(\lambda\)</span> of the exponential distribution, you collect data on the last five UK governments.</p>
 <ul>
@@ -495,9 +517,9 @@ Solution
 </ol></li>
 <li>Use what you learned from Exercise <a href="bayesian-inference.html#exr:bayes-exponential">2.1</a> to plot each prior and posterior.</li>
 <li>For each posterior, compute the mean, median, and mode of <span class="math inline">\(\lambda\)</span>. Interpret. Hint: <span class="math inline">\(\lambda\)</span> is a rate. If the durations are measured in years, then it’s the failures per year. The expected duration in years is <span class="math inline">\(\frac{1}{\lambda}\)</span>, but remember that <span class="math inline">\(E \left( \frac{1}{\lambda}\right) \neq \frac{1} {E(\lambda)}\)</span>. If you want to find the posterior distribution of the expected duration (rather than the failures/year), then you can simulate many draws of <span class="math inline">\(\lambda\)</span> from the posterior and transform each draw into <span class="math inline">\(\frac{1}{\lambda}\)</span>. The mean of the transformed draws is the posterior mean of the expected duration.</li>
-<li>Assess the model. Do you think we have a good model? Hint: the exponential distribution is memoryless. Does that make sense in this appliation?
-</div></li>
+<li>Assess the model. Do you think we have a good model? Hint: the exponential distribution is memoryless. Does that make sense in this appliation?</li>
 </ol>
+</div>
 <details>
 <summary>
 Solutions
@@ -690,7 +712,6 @@ Solutions
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -731,7 +752,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
@@ -747,7 +768,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

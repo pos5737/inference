@@ -4,19 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Appendix: Code for Beta Prior | Inference in Six Lessons</title>
+  <title>Chapter 6 Appendix: Code for Beta Prior | Inference in Six Lessons</title>
   <meta name="description" content="Lecture notes covering the basics concepts of statistical inference for first-year political science PhD students." />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Appendix: Code for Beta Prior | Inference in Six Lessons" />
+  <meta property="og:title" content="Chapter 6 Appendix: Code for Beta Prior | Inference in Six Lessons" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Lecture notes covering the basics concepts of statistical inference for first-year political science PhD students." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Appendix: Code for Beta Prior | Inference in Six Lessons" />
+  <meta name="twitter:title" content="Chapter 6 Appendix: Code for Beta Prior | Inference in Six Lessons" />
   
   <meta name="twitter:description" content="Lecture notes covering the basics concepts of statistical inference for first-year political science PhD students." />
   
@@ -24,17 +23,17 @@
 <meta name="author" content="Carlisle Rainey" />
 
 
-<meta name="date" content="2021-11-17" />
+<meta name="date" content="2022-11-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="evaluating-point-estimates-exercises.html"/>
+<link rel="prev" href="ways-to-find-a-confidence-interval.html"/>
 
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -179,7 +178,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="mvue-or-bue.html"><a href="mvue-or-bue.html"><i class="fa fa-check"></i><b>3.3</b> MVUE or BUE</a></li>
 <li class="chapter" data-level="3.4" data-path="evaluating-point-estimates-exercises.html"><a href="evaluating-point-estimates-exercises.html"><i class="fa fa-check"></i><b>3.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="appendix-code-for-beta-prior.html"><a href="appendix-code-for-beta-prior.html"><i class="fa fa-check"></i><b>4</b> Appendix: Code for Beta Prior</a></li>
+<li class="chapter" data-level="4" data-path="deriving-hypothesis-test.html"><a href="deriving-hypothesis-test.html"><i class="fa fa-check"></i><b>4</b> Deriving Hypothesis Test</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="the-null-and-alternative-hypothesis.html"><a href="the-null-and-alternative-hypothesis.html"><i class="fa fa-check"></i><b>4.1</b> The Null (and Alternative) Hypothesis</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="the-null-and-alternative-hypothesis.html"><a href="the-null-and-alternative-hypothesis.html#the-most-common-null-hypotheses"><i class="fa fa-check"></i><b>4.1.1</b> The Most Common Null Hypotheses</a></li>
+<li class="chapter" data-level="4.1.2" data-path="the-null-and-alternative-hypothesis.html"><a href="the-null-and-alternative-hypothesis.html#errors"><i class="fa fa-check"></i><b>4.1.2</b> Errors</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="test-statistics.html"><a href="test-statistics.html"><i class="fa fa-check"></i><b>4.2</b> Test Statistics</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="test-statistics.html"><a href="test-statistics.html#power-function"><i class="fa fa-check"></i><b>4.2.1</b> Power Function</a></li>
+<li class="chapter" data-level="4.2.2" data-path="test-statistics.html"><a href="test-statistics.html#the-likelihood-ratio-test"><i class="fa fa-check"></i><b>4.2.2</b> The Likelihood Ratio Test</a></li>
+<li class="chapter" data-level="4.2.3" data-path="test-statistics.html"><a href="test-statistics.html#wald-test"><i class="fa fa-check"></i><b>4.2.3</b> Wald Test</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="evaluating-tests.html"><a href="evaluating-tests.html"><i class="fa fa-check"></i><b>4.3</b> Evaluating Tests</a></li>
+<li class="chapter" data-level="4.4" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html"><i class="fa fa-check"></i><b>4.4</b> Size of the LRT</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html#p-values"><i class="fa fa-check"></i><b>4.4.1</b> <em>p</em>-Values</a></li>
+<li class="chapter" data-level="4.4.2" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html#size-of-the-wald-test"><i class="fa fa-check"></i><b>4.4.2</b> Size of the Wald Test</a></li>
+<li class="chapter" data-level="4.4.3" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html#size-of-the"><i class="fa fa-check"></i><b>4.4.3</b> Size of the</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ways-to-find-a-confidence-interval.html"><a href="ways-to-find-a-confidence-interval.html"><i class="fa fa-check"></i><b>5</b> Ways to Find a Confidence Interval</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="ways-to-find-a-confidence-interval.html"><a href="ways-to-find-a-confidence-interval.html#bayesian-tests"><i class="fa fa-check"></i><b>5.0.1</b> Bayesian Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="appendix-code-for-beta-prior.html"><a href="appendix-code-for-beta-prior.html"><i class="fa fa-check"></i><b>6</b> Appendix: Code for Beta Prior</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -199,80 +223,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="appendix-code-for-beta-prior" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Appendix: Code for Beta Prior</h1>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="appendix-code-for-beta-prior.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages ----</span></span>
-<span id="cb33-2"><a href="appendix-code-for-beta-prior.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb33-3"><a href="appendix-code-for-beta-prior.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb33-4"><a href="appendix-code-for-beta-prior.html#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="appendix-code-for-beta-prior.html#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create some helpful functions ----</span></span>
-<span id="cb33-6"><a href="appendix-code-for-beta-prior.html#cb33-6" aria-hidden="true" tabindex="-1"></a>find_mode <span class="ot">&lt;-</span> <span class="cf">function</span>(alpha, beta) {</span>
-<span id="cb33-7"><a href="appendix-code-for-beta-prior.html#cb33-7" aria-hidden="true" tabindex="-1"></a>  (alpha <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">/</span>(alpha <span class="sc">+</span> beta <span class="sc">-</span> <span class="dv">2</span>)</span>
-<span id="cb33-8"><a href="appendix-code-for-beta-prior.html#cb33-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb33-9"><a href="appendix-code-for-beta-prior.html#cb33-9" aria-hidden="true" tabindex="-1"></a>find_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(alpha, beta) {</span>
-<span id="cb33-10"><a href="appendix-code-for-beta-prior.html#cb33-10" aria-hidden="true" tabindex="-1"></a>  alpha<span class="sc">/</span>(alpha <span class="sc">+</span> beta)</span>
-<span id="cb33-11"><a href="appendix-code-for-beta-prior.html#cb33-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb33-12"><a href="appendix-code-for-beta-prior.html#cb33-12" aria-hidden="true" tabindex="-1"></a>find_sd <span class="ot">&lt;-</span> <span class="cf">function</span>(alpha, beta) {</span>
-<span id="cb33-13"><a href="appendix-code-for-beta-prior.html#cb33-13" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> alpha</span>
-<span id="cb33-14"><a href="appendix-code-for-beta-prior.html#cb33-14" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> beta</span>
-<span id="cb33-15"><a href="appendix-code-for-beta-prior.html#cb33-15" aria-hidden="true" tabindex="-1"></a>  v <span class="ot">&lt;-</span> (a<span class="sc">*</span>b)<span class="sc">/</span>(((a <span class="sc">+</span> b)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">*</span>(a <span class="sc">+</span> b <span class="sc">+</span> <span class="dv">1</span>))</span>
-<span id="cb33-16"><a href="appendix-code-for-beta-prior.html#cb33-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>(v)</span>
-<span id="cb33-17"><a href="appendix-code-for-beta-prior.html#cb33-17" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb33-18"><a href="appendix-code-for-beta-prior.html#cb33-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-19"><a href="appendix-code-for-beta-prior.html#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="co"># set alpha and beta ----</span></span>
-<span id="cb33-20"><a href="appendix-code-for-beta-prior.html#cb33-20" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">1.1</span>  <span class="co"># pushes the left side down</span></span>
-<span id="cb33-21"><a href="appendix-code-for-beta-prior.html#cb33-21" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fl">1.1</span>   <span class="co"># pushes the right slide down</span></span>
-<span id="cb33-22"><a href="appendix-code-for-beta-prior.html#cb33-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-23"><a href="appendix-code-for-beta-prior.html#cb33-23" aria-hidden="true" tabindex="-1"></a><span class="co"># compute mode, mean, sd</span></span>
-<span id="cb33-24"><a href="appendix-code-for-beta-prior.html#cb33-24" aria-hidden="true" tabindex="-1"></a><span class="fu">find_mode</span>(alpha, beta)  </span></code></pre></div>
+<div id="appendix-code-for-beta-prior" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Appendix: Code for Beta Prior<a href="appendix-code-for-beta-prior.html#appendix-code-for-beta-prior" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="appendix-code-for-beta-prior.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages ----</span></span>
+<span id="cb51-2"><a href="appendix-code-for-beta-prior.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb51-3"><a href="appendix-code-for-beta-prior.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb51-4"><a href="appendix-code-for-beta-prior.html#cb51-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-5"><a href="appendix-code-for-beta-prior.html#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create some helpful functions ----</span></span>
+<span id="cb51-6"><a href="appendix-code-for-beta-prior.html#cb51-6" aria-hidden="true" tabindex="-1"></a>find_mode <span class="ot">&lt;-</span> <span class="cf">function</span>(alpha, beta) {</span>
+<span id="cb51-7"><a href="appendix-code-for-beta-prior.html#cb51-7" aria-hidden="true" tabindex="-1"></a>  (alpha <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">/</span>(alpha <span class="sc">+</span> beta <span class="sc">-</span> <span class="dv">2</span>)</span>
+<span id="cb51-8"><a href="appendix-code-for-beta-prior.html#cb51-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb51-9"><a href="appendix-code-for-beta-prior.html#cb51-9" aria-hidden="true" tabindex="-1"></a>find_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(alpha, beta) {</span>
+<span id="cb51-10"><a href="appendix-code-for-beta-prior.html#cb51-10" aria-hidden="true" tabindex="-1"></a>  alpha<span class="sc">/</span>(alpha <span class="sc">+</span> beta)</span>
+<span id="cb51-11"><a href="appendix-code-for-beta-prior.html#cb51-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb51-12"><a href="appendix-code-for-beta-prior.html#cb51-12" aria-hidden="true" tabindex="-1"></a>find_sd <span class="ot">&lt;-</span> <span class="cf">function</span>(alpha, beta) {</span>
+<span id="cb51-13"><a href="appendix-code-for-beta-prior.html#cb51-13" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> alpha</span>
+<span id="cb51-14"><a href="appendix-code-for-beta-prior.html#cb51-14" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> beta</span>
+<span id="cb51-15"><a href="appendix-code-for-beta-prior.html#cb51-15" aria-hidden="true" tabindex="-1"></a>  v <span class="ot">&lt;-</span> (a<span class="sc">*</span>b)<span class="sc">/</span>(((a <span class="sc">+</span> b)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">*</span>(a <span class="sc">+</span> b <span class="sc">+</span> <span class="dv">1</span>))</span>
+<span id="cb51-16"><a href="appendix-code-for-beta-prior.html#cb51-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>(v)</span>
+<span id="cb51-17"><a href="appendix-code-for-beta-prior.html#cb51-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb51-18"><a href="appendix-code-for-beta-prior.html#cb51-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-19"><a href="appendix-code-for-beta-prior.html#cb51-19" aria-hidden="true" tabindex="-1"></a><span class="co"># set alpha and beta ----</span></span>
+<span id="cb51-20"><a href="appendix-code-for-beta-prior.html#cb51-20" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">1.1</span>  <span class="co"># pushes the left side down</span></span>
+<span id="cb51-21"><a href="appendix-code-for-beta-prior.html#cb51-21" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fl">1.1</span>   <span class="co"># pushes the right slide down</span></span>
+<span id="cb51-22"><a href="appendix-code-for-beta-prior.html#cb51-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-23"><a href="appendix-code-for-beta-prior.html#cb51-23" aria-hidden="true" tabindex="-1"></a><span class="co"># compute mode, mean, sd</span></span>
+<span id="cb51-24"><a href="appendix-code-for-beta-prior.html#cb51-24" aria-hidden="true" tabindex="-1"></a><span class="fu">find_mode</span>(alpha, beta)  </span></code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="appendix-code-for-beta-prior.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find_mean</span>(alpha, beta)  </span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="appendix-code-for-beta-prior.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find_mean</span>(alpha, beta)  </span></code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="appendix-code-for-beta-prior.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find_sd</span>(alpha, beta)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="appendix-code-for-beta-prior.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find_sd</span>(alpha, beta)</span></code></pre></div>
 <pre><code>## [1] 0.2795085</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="appendix-code-for-beta-prior.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot pdf and CDF ----</span></span>
-<span id="cb39-2"><a href="appendix-code-for-beta-prior.html#cb39-2" aria-hidden="true" tabindex="-1"></a>gg_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length.out =</span> <span class="dv">1000</span>))</span>
-<span id="cb39-3"><a href="appendix-code-for-beta-prior.html#cb39-3" aria-hidden="true" tabindex="-1"></a>gg_base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(gg_data, <span class="fu">aes</span>(<span class="at">x =</span> x))</span>
-<span id="cb39-4"><a href="appendix-code-for-beta-prior.html#cb39-4" aria-hidden="true" tabindex="-1"></a>gg_pdf <span class="ot">&lt;-</span> gg_base <span class="sc">+</span> </span>
-<span id="cb39-5"><a href="appendix-code-for-beta-prior.html#cb39-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_function</span>(<span class="at">fun =</span> dbeta, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">shape1 =</span> alpha, <span class="at">shape2 =</span> beta)) <span class="sc">+</span> </span>
-<span id="cb39-6"><a href="appendix-code-for-beta-prior.html#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;pi&quot;</span>,</span>
-<span id="cb39-7"><a href="appendix-code-for-beta-prior.html#cb39-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;prior pdf&quot;</span>)</span>
-<span id="cb39-8"><a href="appendix-code-for-beta-prior.html#cb39-8" aria-hidden="true" tabindex="-1"></a>gg_cdf <span class="ot">&lt;-</span> gg_base <span class="sc">+</span> </span>
-<span id="cb39-9"><a href="appendix-code-for-beta-prior.html#cb39-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> pbeta, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">shape1 =</span> alpha, <span class="at">shape2 =</span> beta)) <span class="sc">+</span> </span>
-<span id="cb39-10"><a href="appendix-code-for-beta-prior.html#cb39-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="fu">qbeta</span>(.<span class="dv">25</span>, alpha, beta),</span>
-<span id="cb39-11"><a href="appendix-code-for-beta-prior.html#cb39-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">xend =</span> <span class="fu">qbeta</span>(.<span class="dv">25</span>, alpha, beta),</span>
-<span id="cb39-12"><a href="appendix-code-for-beta-prior.html#cb39-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="dv">0</span>, </span>
-<span id="cb39-13"><a href="appendix-code-for-beta-prior.html#cb39-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">yend =</span> <span class="fl">0.25</span>, </span>
-<span id="cb39-14"><a href="appendix-code-for-beta-prior.html#cb39-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb39-15"><a href="appendix-code-for-beta-prior.html#cb39-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="dv">0</span>,</span>
-<span id="cb39-16"><a href="appendix-code-for-beta-prior.html#cb39-16" aria-hidden="true" tabindex="-1"></a>               <span class="at">xend =</span> <span class="fu">qbeta</span>(.<span class="dv">25</span>, alpha, beta),</span>
-<span id="cb39-17"><a href="appendix-code-for-beta-prior.html#cb39-17" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="fl">0.25</span>, </span>
-<span id="cb39-18"><a href="appendix-code-for-beta-prior.html#cb39-18" aria-hidden="true" tabindex="-1"></a>               <span class="at">yend =</span> <span class="fl">0.25</span>, </span>
-<span id="cb39-19"><a href="appendix-code-for-beta-prior.html#cb39-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb39-20"><a href="appendix-code-for-beta-prior.html#cb39-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;label&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>,</span>
-<span id="cb39-21"><a href="appendix-code-for-beta-prior.html#cb39-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="fu">qbeta</span>(.<span class="dv">25</span>, alpha, beta), </span>
-<span id="cb39-22"><a href="appendix-code-for-beta-prior.html#cb39-22" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">0</span>, </span>
-<span id="cb39-23"><a href="appendix-code-for-beta-prior.html#cb39-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">round</span>(<span class="fu">qbeta</span>(.<span class="dv">25</span>, alpha, beta), <span class="dv">2</span>)) <span class="sc">+</span> </span>
-<span id="cb39-24"><a href="appendix-code-for-beta-prior.html#cb39-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="fu">qbeta</span>(.<span class="dv">75</span>, alpha, beta),</span>
-<span id="cb39-25"><a href="appendix-code-for-beta-prior.html#cb39-25" aria-hidden="true" tabindex="-1"></a>               <span class="at">xend =</span> <span class="fu">qbeta</span>(.<span class="dv">75</span>, alpha, beta),</span>
-<span id="cb39-26"><a href="appendix-code-for-beta-prior.html#cb39-26" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="dv">0</span>, </span>
-<span id="cb39-27"><a href="appendix-code-for-beta-prior.html#cb39-27" aria-hidden="true" tabindex="-1"></a>               <span class="at">yend =</span> <span class="fl">0.75</span>, </span>
-<span id="cb39-28"><a href="appendix-code-for-beta-prior.html#cb39-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb39-29"><a href="appendix-code-for-beta-prior.html#cb39-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="dv">0</span>,</span>
-<span id="cb39-30"><a href="appendix-code-for-beta-prior.html#cb39-30" aria-hidden="true" tabindex="-1"></a>               <span class="at">xend =</span> <span class="fu">qbeta</span>(.<span class="dv">75</span>, alpha, beta),</span>
-<span id="cb39-31"><a href="appendix-code-for-beta-prior.html#cb39-31" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="fl">0.75</span>, </span>
-<span id="cb39-32"><a href="appendix-code-for-beta-prior.html#cb39-32" aria-hidden="true" tabindex="-1"></a>               <span class="at">yend =</span> <span class="fl">0.75</span>, </span>
-<span id="cb39-33"><a href="appendix-code-for-beta-prior.html#cb39-33" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb39-34"><a href="appendix-code-for-beta-prior.html#cb39-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;label&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>,</span>
-<span id="cb39-35"><a href="appendix-code-for-beta-prior.html#cb39-35" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="fu">qbeta</span>(.<span class="dv">75</span>, alpha, beta), </span>
-<span id="cb39-36"><a href="appendix-code-for-beta-prior.html#cb39-36" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">0</span>, </span>
-<span id="cb39-37"><a href="appendix-code-for-beta-prior.html#cb39-37" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">round</span>(<span class="fu">qbeta</span>(.<span class="dv">75</span>, alpha, beta), <span class="dv">2</span>)) <span class="sc">+</span> </span>
-<span id="cb39-38"><a href="appendix-code-for-beta-prior.html#cb39-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;pi&quot;</span>,</span>
-<span id="cb39-39"><a href="appendix-code-for-beta-prior.html#cb39-39" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;prior cdf&quot;</span>)</span>
-<span id="cb39-40"><a href="appendix-code-for-beta-prior.html#cb39-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-41"><a href="appendix-code-for-beta-prior.html#cb39-41" aria-hidden="true" tabindex="-1"></a><span class="co"># draw the plots ----</span></span>
-<span id="cb39-42"><a href="appendix-code-for-beta-prior.html#cb39-42" aria-hidden="true" tabindex="-1"></a>gg_pdf <span class="sc">+</span> gg_cdf</span></code></pre></div>
-<p><img src="inference_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="appendix-code-for-beta-prior.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot pdf and CDF ----</span></span>
+<span id="cb57-2"><a href="appendix-code-for-beta-prior.html#cb57-2" aria-hidden="true" tabindex="-1"></a>gg_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length.out =</span> <span class="dv">1000</span>))</span>
+<span id="cb57-3"><a href="appendix-code-for-beta-prior.html#cb57-3" aria-hidden="true" tabindex="-1"></a>gg_base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(gg_data, <span class="fu">aes</span>(<span class="at">x =</span> x))</span>
+<span id="cb57-4"><a href="appendix-code-for-beta-prior.html#cb57-4" aria-hidden="true" tabindex="-1"></a>gg_pdf <span class="ot">&lt;-</span> gg_base <span class="sc">+</span> </span>
+<span id="cb57-5"><a href="appendix-code-for-beta-prior.html#cb57-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_function</span>(<span class="at">fun =</span> dbeta, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">shape1 =</span> alpha, <span class="at">shape2 =</span> beta)) <span class="sc">+</span> </span>
+<span id="cb57-6"><a href="appendix-code-for-beta-prior.html#cb57-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;pi&quot;</span>,</span>
+<span id="cb57-7"><a href="appendix-code-for-beta-prior.html#cb57-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;prior pdf&quot;</span>)</span>
+<span id="cb57-8"><a href="appendix-code-for-beta-prior.html#cb57-8" aria-hidden="true" tabindex="-1"></a>gg_cdf <span class="ot">&lt;-</span> gg_base <span class="sc">+</span> </span>
+<span id="cb57-9"><a href="appendix-code-for-beta-prior.html#cb57-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> pbeta, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">shape1 =</span> alpha, <span class="at">shape2 =</span> beta)) <span class="sc">+</span> </span>
+<span id="cb57-10"><a href="appendix-code-for-beta-prior.html#cb57-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="fu">qbeta</span>(.<span class="dv">25</span>, alpha, beta),</span>
+<span id="cb57-11"><a href="appendix-code-for-beta-prior.html#cb57-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">xend =</span> <span class="fu">qbeta</span>(.<span class="dv">25</span>, alpha, beta),</span>
+<span id="cb57-12"><a href="appendix-code-for-beta-prior.html#cb57-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="dv">0</span>, </span>
+<span id="cb57-13"><a href="appendix-code-for-beta-prior.html#cb57-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">yend =</span> <span class="fl">0.25</span>, </span>
+<span id="cb57-14"><a href="appendix-code-for-beta-prior.html#cb57-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb57-15"><a href="appendix-code-for-beta-prior.html#cb57-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="dv">0</span>,</span>
+<span id="cb57-16"><a href="appendix-code-for-beta-prior.html#cb57-16" aria-hidden="true" tabindex="-1"></a>               <span class="at">xend =</span> <span class="fu">qbeta</span>(.<span class="dv">25</span>, alpha, beta),</span>
+<span id="cb57-17"><a href="appendix-code-for-beta-prior.html#cb57-17" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="fl">0.25</span>, </span>
+<span id="cb57-18"><a href="appendix-code-for-beta-prior.html#cb57-18" aria-hidden="true" tabindex="-1"></a>               <span class="at">yend =</span> <span class="fl">0.25</span>, </span>
+<span id="cb57-19"><a href="appendix-code-for-beta-prior.html#cb57-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb57-20"><a href="appendix-code-for-beta-prior.html#cb57-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;label&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>,</span>
+<span id="cb57-21"><a href="appendix-code-for-beta-prior.html#cb57-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="fu">qbeta</span>(.<span class="dv">25</span>, alpha, beta), </span>
+<span id="cb57-22"><a href="appendix-code-for-beta-prior.html#cb57-22" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">0</span>, </span>
+<span id="cb57-23"><a href="appendix-code-for-beta-prior.html#cb57-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">round</span>(<span class="fu">qbeta</span>(.<span class="dv">25</span>, alpha, beta), <span class="dv">2</span>)) <span class="sc">+</span> </span>
+<span id="cb57-24"><a href="appendix-code-for-beta-prior.html#cb57-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="fu">qbeta</span>(.<span class="dv">75</span>, alpha, beta),</span>
+<span id="cb57-25"><a href="appendix-code-for-beta-prior.html#cb57-25" aria-hidden="true" tabindex="-1"></a>               <span class="at">xend =</span> <span class="fu">qbeta</span>(.<span class="dv">75</span>, alpha, beta),</span>
+<span id="cb57-26"><a href="appendix-code-for-beta-prior.html#cb57-26" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="dv">0</span>, </span>
+<span id="cb57-27"><a href="appendix-code-for-beta-prior.html#cb57-27" aria-hidden="true" tabindex="-1"></a>               <span class="at">yend =</span> <span class="fl">0.75</span>, </span>
+<span id="cb57-28"><a href="appendix-code-for-beta-prior.html#cb57-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb57-29"><a href="appendix-code-for-beta-prior.html#cb57-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="dv">0</span>,</span>
+<span id="cb57-30"><a href="appendix-code-for-beta-prior.html#cb57-30" aria-hidden="true" tabindex="-1"></a>               <span class="at">xend =</span> <span class="fu">qbeta</span>(.<span class="dv">75</span>, alpha, beta),</span>
+<span id="cb57-31"><a href="appendix-code-for-beta-prior.html#cb57-31" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="fl">0.75</span>, </span>
+<span id="cb57-32"><a href="appendix-code-for-beta-prior.html#cb57-32" aria-hidden="true" tabindex="-1"></a>               <span class="at">yend =</span> <span class="fl">0.75</span>, </span>
+<span id="cb57-33"><a href="appendix-code-for-beta-prior.html#cb57-33" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb57-34"><a href="appendix-code-for-beta-prior.html#cb57-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;label&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>,</span>
+<span id="cb57-35"><a href="appendix-code-for-beta-prior.html#cb57-35" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="fu">qbeta</span>(.<span class="dv">75</span>, alpha, beta), </span>
+<span id="cb57-36"><a href="appendix-code-for-beta-prior.html#cb57-36" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">0</span>, </span>
+<span id="cb57-37"><a href="appendix-code-for-beta-prior.html#cb57-37" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">round</span>(<span class="fu">qbeta</span>(.<span class="dv">75</span>, alpha, beta), <span class="dv">2</span>)) <span class="sc">+</span> </span>
+<span id="cb57-38"><a href="appendix-code-for-beta-prior.html#cb57-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;pi&quot;</span>,</span>
+<span id="cb57-39"><a href="appendix-code-for-beta-prior.html#cb57-39" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;prior cdf&quot;</span>)</span>
+<span id="cb57-40"><a href="appendix-code-for-beta-prior.html#cb57-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-41"><a href="appendix-code-for-beta-prior.html#cb57-41" aria-hidden="true" tabindex="-1"></a><span class="co"># draw the plots ----</span></span>
+<span id="cb57-42"><a href="appendix-code-for-beta-prior.html#cb57-42" aria-hidden="true" tabindex="-1"></a>gg_pdf <span class="sc">+</span> gg_cdf</span></code></pre></div>
+<p><img src="inference_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 
 </div>
             </section>
@@ -280,12 +304,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="evaluating-point-estimates-exercises.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ways-to-find-a-confidence-interval.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -326,7 +349,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
@@ -342,7 +365,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.3 Maximum Likelihood | Inference in Six Lessons</title>
   <meta name="description" content="Lecture notes covering the basics concepts of statistical inference for first-year political science PhD students." />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.3 Maximum Likelihood | Inference in Six Lessons" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Lecture notes covering the basics concepts of statistical inference for first-year political science PhD students." />
   
@@ -24,7 +23,7 @@
 <meta name="author" content="Carlisle Rainey" />
 
 
-<meta name="date" content="2021-11-17" />
+<meta name="date" content="2022-11-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="method-of-moments.html"/>
 <link rel="next" href="evaluating-point-estimates.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -179,7 +178,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="mvue-or-bue.html"><a href="mvue-or-bue.html"><i class="fa fa-check"></i><b>3.3</b> MVUE or BUE</a></li>
 <li class="chapter" data-level="3.4" data-path="evaluating-point-estimates-exercises.html"><a href="evaluating-point-estimates-exercises.html"><i class="fa fa-check"></i><b>3.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="appendix-code-for-beta-prior.html"><a href="appendix-code-for-beta-prior.html"><i class="fa fa-check"></i><b>4</b> Appendix: Code for Beta Prior</a></li>
+<li class="chapter" data-level="4" data-path="deriving-hypothesis-test.html"><a href="deriving-hypothesis-test.html"><i class="fa fa-check"></i><b>4</b> Deriving Hypothesis Test</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="the-null-and-alternative-hypothesis.html"><a href="the-null-and-alternative-hypothesis.html"><i class="fa fa-check"></i><b>4.1</b> The Null (and Alternative) Hypothesis</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="the-null-and-alternative-hypothesis.html"><a href="the-null-and-alternative-hypothesis.html#the-most-common-null-hypotheses"><i class="fa fa-check"></i><b>4.1.1</b> The Most Common Null Hypotheses</a></li>
+<li class="chapter" data-level="4.1.2" data-path="the-null-and-alternative-hypothesis.html"><a href="the-null-and-alternative-hypothesis.html#errors"><i class="fa fa-check"></i><b>4.1.2</b> Errors</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="test-statistics.html"><a href="test-statistics.html"><i class="fa fa-check"></i><b>4.2</b> Test Statistics</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="test-statistics.html"><a href="test-statistics.html#power-function"><i class="fa fa-check"></i><b>4.2.1</b> Power Function</a></li>
+<li class="chapter" data-level="4.2.2" data-path="test-statistics.html"><a href="test-statistics.html#the-likelihood-ratio-test"><i class="fa fa-check"></i><b>4.2.2</b> The Likelihood Ratio Test</a></li>
+<li class="chapter" data-level="4.2.3" data-path="test-statistics.html"><a href="test-statistics.html#wald-test"><i class="fa fa-check"></i><b>4.2.3</b> Wald Test</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="evaluating-tests.html"><a href="evaluating-tests.html"><i class="fa fa-check"></i><b>4.3</b> Evaluating Tests</a></li>
+<li class="chapter" data-level="4.4" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html"><i class="fa fa-check"></i><b>4.4</b> Size of the LRT</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html#p-values"><i class="fa fa-check"></i><b>4.4.1</b> <em>p</em>-Values</a></li>
+<li class="chapter" data-level="4.4.2" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html#size-of-the-wald-test"><i class="fa fa-check"></i><b>4.4.2</b> Size of the Wald Test</a></li>
+<li class="chapter" data-level="4.4.3" data-path="size-of-the-lrt.html"><a href="size-of-the-lrt.html#size-of-the"><i class="fa fa-check"></i><b>4.4.3</b> Size of the</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ways-to-find-a-confidence-interval.html"><a href="ways-to-find-a-confidence-interval.html"><i class="fa fa-check"></i><b>5</b> Ways to Find a Confidence Interval</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="ways-to-find-a-confidence-interval.html"><a href="ways-to-find-a-confidence-interval.html#bayesian-tests"><i class="fa fa-check"></i><b>5.0.1</b> Bayesian Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="appendix-code-for-beta-prior.html"><a href="appendix-code-for-beta-prior.html"><i class="fa fa-check"></i><b>6</b> Appendix: Code for Beta Prior</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -199,10 +223,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="maximum-likelihood" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Maximum Likelihood</h2>
-<div id="mechanics-2" class="section level3" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Mechanics</h3>
+<div id="maximum-likelihood" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Maximum Likelihood<a href="maximum-likelihood.html#maximum-likelihood" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="mechanics-2" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Mechanics<a href="maximum-likelihood.html#mechanics-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose we have a random sample from a distribution <span class="math inline">\(f(x \mid \theta)\)</span>. We find the maximum likelihood (ML) estimator <span class="math inline">\(\hat{\theta}\)</span> of <span class="math inline">\(\theta\)</span> by maximizing the likelihood of the observed data with respect to <span class="math inline">\(\theta\)</span>.</p>
 <p>In short, we take the likelihood from Section <a href="bayesian-inference.html#likelihood">2.1.1.1</a> and find the parameter <span class="math inline">\(\theta\)</span> that maximizes it.</p>
 <p>In practice, to make the math and/or computation a bit easier, we manipulate the likelihood function in three ways:</p>
@@ -213,8 +237,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Suppose we have samples <span class="math inline">\(x_1, x_2, ..., x_N\)</span> from <span class="math inline">\(f(x \mid \theta)\)</span>. Then the likelihood is <span class="math inline">\(f(x \mid \theta) = \prod_{n = 1}^N f(x_n \mid \theta)\)</span> and <span class="math inline">\(\log L(\theta) = \sum_{n = 1}^N \log \left[ f(x_n \mid \theta) \right]\)</span>. The ML estimator <span class="math inline">\(\hat{\theta}\)</span> of <span class="math inline">\(\theta\)</span> is <span class="math inline">\(\arg \max \log L(\theta)\)</span>.</p>
 <p>In applied problems, we might be able to simplify <span class="math inline">\(\log L\)</span> substantially. Occasionally, we can find a nice analytical maximum. In many cases, we have a computer find the parameter that maximizes <span class="math inline">\(\log L\)</span>.</p>
 </div>
-<div id="example-toothpaste-cap-problem-1" class="section level3" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Example: Toothpaste Cap Problem</h3>
+<div id="example-toothpaste-cap-problem-1" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Example: Toothpaste Cap Problem<a href="maximum-likelihood.html#example-toothpaste-cap-problem-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For the toothpaste cap problem, we have the following likelihood, which I’m borrowing directly from Section <a href="bayesian-inference.html#likelihood">2.1.1.1</a>.
 <span class="math display">\[
 \text{the likelihood:  } f(x | \pi) = \pi^{k} (1 - \pi)^{(N - k)}, \text{where } k = \sum_{n = 1}^N x_n \\
@@ -242,8 +266,8 @@ k  &amp;= N\hat{\pi} \\
 The ML estimator for the Bernoulli distribution is the fraction of successes, or, equivalently, the average of the Bernoulli trials.</p>
 <p>The collected data consist of 150 trials and 8 successes, so the ML estimate of <span class="math inline">\(\pi\)</span> is <span class="math inline">\(\frac{8}{150} \approx 0.053\)</span>. Compare the ML estimate with the posterior mean, median, and mode above.</p>
 </div>
-<div id="example-german-tank-problem-1" class="section level3" number="2.3.3">
-<h3><span class="header-section-number">2.3.3</span> Example: German Tank Problem</h3>
+<div id="example-german-tank-problem-1" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Example: German Tank Problem<a href="maximum-likelihood.html#example-german-tank-problem-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The German tank problem is an excellent example of an ML estimator because one can think through the logic intuitively rather than mathematically.</p>
 <p>Recall that the Allies observe <span class="math inline">\(N\)</span> serial numbers of German tanks. By treating these serial numbers as samples without replacement from a set of sequential serial numbers <span class="math inline">\(S = \{1, 2, ..., \nu\}\)</span>, they can estimate the total number of German tanks <span class="math inline">\(\nu\)</span>.</p>
 <p>Because we’re sampling <em>without</em> replacement, the likelihood is quite complicated.</p>
@@ -297,8 +321,8 @@ It’s clear, then, that in order to make <span class="math inline">\(L\)</span>
 ## Sim. #4: 010, 032, 040, 081, 094 --&gt; ML estimate = 94; MM estimate = 101.8
 ## Sim. #5: 001, 030, 038, 039, 076 --&gt; ML estimate = 76; MM estimate = 72.6</code></pre>
 </div>
-<div id="example-poisson-distribution-1" class="section level3" number="2.3.4">
-<h3><span class="header-section-number">2.3.4</span> Example: Poisson Distribution</h3>
+<div id="example-poisson-distribution-1" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Example: Poisson Distribution<a href="maximum-likelihood.html#example-poisson-distribution-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose we collect <span class="math inline">\(N\)</span> random samples <span class="math inline">\(x = \{x_1, x_2, ..., x_N\}\)</span> and model each draw as a random variable <span class="math inline">\(X \sim \text{Poisson}(\lambda)\)</span>. Find the ML estimator of <span class="math inline">\(\lambda\)</span>.</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -320,16 +344,15 @@ To find the ML estimator, we find <span class="math inline">\(\hat{\lambda}\)</s
 \]</span>
 The ML estimator for the Poisson distribution is just the average of the samples.</p>
 </div>
-<div id="remarks-2" class="section level3" number="2.3.5">
-<h3><span class="header-section-number">2.3.5</span> Remarks</h3>
+<div id="remarks-2" class="section level3 hasAnchor" number="2.3.5">
+<h3><span class="header-section-number">2.3.5</span> Remarks<a href="maximum-likelihood.html#remarks-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The ML estimator is extremely common in political science because they are general, fast, and work extremely well. Lots of models that you’ve heard of, such as logistic regression, are estimated with ML.</p>
 <p>We can even obtain ML estimates for the linear regression model. We assume that the observed data are samples from a normal distribution with mean <span class="math inline">\(\mu_n = \alpha + \beta x_n\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. For this model, the least-squares estimate that we learned earlier is also the ML estimate.</p>
 </div>
-<div id="exercises-2" class="section level3" number="2.3.6">
-<h3><span class="header-section-number">2.3.6</span> Exercises</h3>
-
+<div id="exercises-2" class="section level3 hasAnchor" number="2.3.6">
+<h3><span class="header-section-number">2.3.6</span> Exercises<a href="maximum-likelihood.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="exercise">
-<span id="exr:ml-exponential" class="exercise"><strong>Exercise 2.5  </strong></span>Suppose we collect <span class="math inline">\(N\)</span> random samples <span class="math inline">\(x = \{x_1, x_2, ..., x_N\}\)</span> and model each draw as a random variable <span class="math inline">\(X \sim \text{exponential}(\lambda)\)</span> with pdf <span class="math inline">\(f(x_n | \lambda) = \lambda e^{-\lambda x_n}\)</span>. Find the maximum estimator of <span class="math inline">\(\lambda\)</span>.
+<p><span id="exr:ml-exponential" class="exercise"><strong>Exercise 2.5  </strong></span>Suppose we collect <span class="math inline">\(N\)</span> random samples <span class="math inline">\(x = \{x_1, x_2, ..., x_N\}\)</span> and model each draw as a random variable <span class="math inline">\(X \sim \text{exponential}(\lambda)\)</span> with pdf <span class="math inline">\(f(x_n | \lambda) = \lambda e^{-\lambda x_n}\)</span>. Find the maximum estimator of <span class="math inline">\(\lambda\)</span>.</p>
 </div>
 <details>
 <summary>
@@ -337,10 +360,9 @@ Solution
 </summary>
 The math follows the Poisson example closely. However, the solution is the inverse–<span class="math inline">\(\hat{\lambda} = \frac{N}{\sum_{n = 1}^N x_n } = \frac{1}{\text{avg}(x)}\)</span>.
 </details>
-
 <div class="exercise">
 <p><span id="exr:ml-govt-duration" class="exercise"><strong>Exercise 2.6  </strong></span>Model the data from Exercise <a href="bayesian-inference.html#exr:govt-duration-bayes">2.2</a> as draws from an exponential distribution with rate parameter <span class="math inline">\(\lambda\)</span>. Use the maximum estimator from Exercise <a href="maximum-likelihood.html#exr:ml-exponential">2.5</a> to estimate <span class="math inline">\(\lambda\)</span>.</p>
-What if you want to estimate the mean duration <span class="math inline">\(\mu = \frac{1}{\lambda}\)</span> rather than the failure rate <span class="math inline">\(\lambda\)</span>? Can you just use <span class="math inline">\(\hat{\mu} = \frac{1}{\hat{\lambda}}\)</span>?
+<p>What if you want to estimate the mean duration <span class="math inline">\(\mu = \frac{1}{\lambda}\)</span> rather than the failure rate <span class="math inline">\(\lambda\)</span>? Can you just use <span class="math inline">\(\hat{\mu} = \frac{1}{\hat{\lambda}}\)</span>?</p>
 </div>
 <details>
 <summary>
@@ -365,7 +387,6 @@ Like MM estimators, ML estimators are invariant under transformation, though thi
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -406,7 +427,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
@@ -422,7 +443,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

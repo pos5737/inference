@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Inference in Six Lessons</title>
+  <title>4.1 The Null (and Alternative) Hypothesis | Inference in Six Lessons</title>
   <meta name="description" content="Lecture notes covering the basics concepts of statistical inference for first-year political science PhD students." />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Inference in Six Lessons" />
+  <meta property="og:title" content="4.1 The Null (and Alternative) Hypothesis | Inference in Six Lessons" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Lecture notes covering the basics concepts of statistical inference for first-year political science PhD students." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Inference in Six Lessons" />
+  <meta name="twitter:title" content="4.1 The Null (and Alternative) Hypothesis | Inference in Six Lessons" />
   
   <meta name="twitter:description" content="Lecture notes covering the basics concepts of statistical inference for first-year political science PhD students." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="deriving-hypothesis-test.html"/>
+<link rel="next" href="test-statistics.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -223,19 +223,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="the-null-and-alternative-hypothesis" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> The Null (and Alternative) Hypothesis<a href="the-null-and-alternative-hypothesis.html#the-null-and-alternative-hypothesis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A <strong>null hypothesis</strong> <span class="math inline">\(H_0 : \theta \in \Theta_0\)</span> is a statement about the value of a parameter. A null hypothesis states that the parameter <span class="math inline">\(\theta\)</span> takes on a value from particular subset <span class="math inline">\(\Theta_0\)</span> of the parameter space <span class="math inline">\(Theta\)</span>.</p>
+<p>Typically, the null hypothesis includes the parameter values that the researcher would like to argue against.</p>
+<p>A <strong>hypothesis test</strong> is a rule that uses a sample to decide whether to <em>reject</em> or <em>not reject</em> the null hypothesis.</p>
+<p>A hypothesis testing formal procedure that researcher use to assess the evidence against the null hypothesis. In the context of theory testing, you can think if the null hypothesis as the hypothesis that the theory is <em>wrong</em> or that the parameters of interest are insistent with the theory.</p>
+<p>Importantly, the result of the hypothesis test will be to either <strong>reject</strong> (i.e., deem false) or <strong>not reject</strong> (i.e., not deem false) the null hypothesis. Crucially, when <strong>not rejecting</strong> the null hypothesis, the researcher does not take the additional step of claiming that the null hypothesis is correct. Instead, they remain agnostic about whether the null hypothesis is true.</p>
+<p>To emphasize this point, Tukey and Jones (2000) write:</p>
+<blockquote>
+<p>With this formulation, a conclusion is in error only when it is “a reversal,” when it asserts one direction while the (unknown) truth is the other direction. Asserting that the direction is not yet established may constitute a wasted opportunity, but it is not an error. We want to control the rate of error, the reversal rate, while minimizing wasted opportunity, that is, while minimizing indefinite results.</p>
+</blockquote>
+<p>Each null hypothesis <span class="math inline">\(H_0 : \theta \in \Theta_0\)</span> implies an opposite hypothesis <span class="math inline">\(H_1 : \theta \in \Theta_0^C\)</span> called the <strong>alternative hypothesis</strong>. Rejecting the null hypothesis is equivalent to accepting the alternative hypothesis. When the researcher does not reject the null hypothesis, they remain agnostic about whether the null hypothesis is true; therefore, they must also remain agnostic about whether the alternative hypothesis is true.</p>
+<p>Because the the null and the alternative hypotheses are <em>exactly</em> opposites, I leave the alternative as implicit.</p>
+<p>A <strong>point null hypothesis</strong> has the form <span class="math inline">\(H_0 : \theta \in \theta_0\)</span>, where <span class="math inline">\(\theta_0\)</span> represents <em>a single point</em> in the parameter space <span class="math inline">\(\Theta\)</span>.</p>
+<p>A <strong>composite null hypothesis</strong> has the form <span class="math inline">\(H_0 : \theta \in \Theta_0\)</span>, where <span class="math inline">\(\Theta_0\)</span> represents multiple points in the parameter space <span class="math inline">\(\Theta\)</span>.</p>
+<p>For example, the null hypothesis <span class="math inline">\(H_0 : \theta \leq 0\)</span> is a composite null hypothesis.</p>
+<div id="the-most-common-null-hypotheses" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> The Most Common Null Hypotheses<a href="the-null-and-alternative-hypothesis.html#the-most-common-null-hypotheses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In political science, the most common hypotheses are about differences between the averages of two groups or about slopes in regression model.</p>
+<ul>
+<li>non-directional null hypothesis for an experiment: <span class="math inline">\(\mu_{\text{treatment}} - \mu_{\text{control}} = 0\)</span>.</li>
+<li>directional null hypothesis for an experiment: <span class="math inline">\(\mu_{\text{treatment}} - \mu_{\text{control}} \leq 0\)</span> or <span class="math inline">\(\mu_{\text{treatment}} - \mu_{\text{control}} \geq 0\)</span>.</li>
+<li>non-directional null hypothesis for a regression slope: <span class="math inline">\(\beta_x = 0\)</span>.</li>
+<li>directional null hypothesis for a regression slope: <span class="math inline">\(\beta_x \leq 0\)</span> or <span class="math inline">\(\beta_x\geq 0\)</span>.</li>
+</ul>
+</div>
+<div id="errors" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Errors<a href="the-null-and-alternative-hypothesis.html#errors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For each test, there are two possible states: either the null hypothesis is true or it is false. Similarly, there are two possible outcomes: either the researcher rejects they null or they do not.</p>
+<p>If the null hypothesis is <strong>true</strong>, then:</p>
+<ul>
+<li>The researcher might (incorrect) reject it, in which case they have made an error. This is (for reasons I don’t understand) called a <strong>Type I error</strong>.</li>
+<li>The researcher might not reject it, in which case they made <strong>no error</strong>.</li>
+</ul>
+<p>If the null hypothesis is <strong>false</strong>, then:</p>
+<ul>
+<li>The researcher might (correctly) reject it, in which case they made <strong>no error</strong>. <em>This is the most desired outcome.</em></li>
+<li>The researcher might not reject it. The null hypothesis is false, and the researcher did not reject it. However, the researcher (if they followed my advice above) did remain agnostic. So it’s not quite an “error”–it’s more of a “<strong>lost opportunity</strong>.” (The researcher had the correct suspicion, but the data were inconclusive.) This is called a <strong>Type II error</strong>.</li>
+</ul>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="deriving-hypothesis-test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="test-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
